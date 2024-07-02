@@ -1,28 +1,28 @@
 {
 	"Hero": {
-		"h1": "快速制作落地页",
-		"h2": "这是一个免费、开源且功能强大的落地页模板，适用于SaaS项目，它将帮助您更快地启动您的创业项目。"
+		"h1": "Odoo安卓客户端",
+		"h2": "这是一款免费且功能强大的Odoo安卓客户端，支持v17+版本以上的社区版和企业版，同时特别支持v14企业版"
 	},
 	"Feature": {
 		"h2": "Feature",
-		"h3": "乘风-落地页模板的特点",
-		"description1": "出色的落地页模板。",
-		"description2": "基于Next.JS、DaisyUI、TailwindCSS和其他强大的库。",
-		"description3": "完全开源且完全免费。"
+		"h3": "Moco Odoo安卓客户端的特点",
+		"description1": "支持v17+社区版和企业版",
+		"description2": "整合GMS/HMS，支持安卓原生消息通知",
+		"description3": "个人用户完全免费"
 	},
 	"Pricing": {
 		"h2": "Pricing",
-		"h3": "选择您的计划",
-		"description": "选择最适合您需求的计划。",
-		"doYouLike": "你喜欢这个落地页模板吗？",
+		"h3": "选择您的套餐",
+		"description": "选择最适合您需求的套餐。",
+		"doYouLike": "你喜欢这个App吗？",
 		"follow": "关注我的推特。"
 	},
 	"Testimonial": {
 		"h2": "Testimonial",
-		"h3": "Wall of Love",
-		"description1": "如果您使用这个落地页模板并在您的推特上推荐它，",
+		"h3": "客户之声",
+		"description1": "如果您使用这个App并在您的推特上推荐它，",
 		"description2": "请告诉我",
-		"description3": "，我会在这里展示您的推文和推荐。"
+		"description3": "，我会在这里展示您的推文。"
 	},
 	"Faq": {
 		"h2": "FAQ",
@@ -30,11 +30,11 @@
 		"description": "以下是一些最常见的问题。"
 	},
 	"CTA": {
-		"h2": "立即构建您的落地页",
-		"h3": "构建您的落地页，展示您的产品，并开始盈利！"
+		"h2": "立即安装",
+		"h3": "随时随地查看您在Odoo上的业务！"
 	},
 	"CTAButton": {
-		"btn1": "获取源代码",
+		"btn1": "获取Apk",
 		"btn2": "查看文档"
 	}
 }

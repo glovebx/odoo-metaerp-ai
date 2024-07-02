@@ -1,28 +1,28 @@
 {
 	"Hero": {
-		"h1": "Make Landing Page Faster",
-		"h2": "This is a free, open-source and powerful landing page template for saas project, it will help you to make your startup faster."
+		"h1": "Odoo Android Client",
+		"h2": "This is a free and powerful Odoo Android client that supports community and enterprise editions from version 17+ and above, and also specially supports version 14 enterprise edition."
 	},
 	"Feature": {
-		"h2": "Our Feature",
-		"h3": "Features of inWind Landing Page Template",
-		"description1": "Awesome landing page template.",
-		"description2": "Based on Next.JS, DaisyUI, TailwinCSS and other powerful libary.",
-		"description3": "Completely open source and completely free."
+		"h2": "Feature",
+		"h3": "Features of Moco Odoo Android Client",
+		"description1": "Supports community and enterprise editions from version 17+ and above",
+		"description2": "Integrates GMS/HMS, supports native Android message notifications",
+		"description3": "Completely free for individual users"
 	},
 	"Pricing": {
-		"h2": "Our Pricing",
-		"h3": "Choose Your Plan",
-		"description": "Select the plan that best fits your needs.",
-		"doYouLike": "你喜欢这个落地页模板吗？",
-		"follow": "关注我的推特。"
+		"h2": "Pricing",
+		"h3": "Choose your plan",
+		"description": "Choose the plan that best suits your needs.",
+		"doYouLike": "Do you like this app?",
+		"follow": "Follow my Twitter."
 	},
 	"Testimonial": {
-		"h2": "Testimonials",
-		"h3": "Wall of Love",
-		"description1": "If you use this landing page template and recommend it on your Twitter,",
+		"h2": "Testimonial",
+		"h3": "Customer Voices",
+		"description1": "If you use this app and recommend it on your Twitter,",
 		"description2": "please let me know",
-		"description3": ",I will display your tweet and recommendation here."
+		"description3": ", and I will showcase your tweet here."
 	},
 	"Faq": {
 		"h2": "FAQ",
@@ -30,11 +30,11 @@
 		"description": "Here are some of the most frequently asked questions."
 	},
 	"CTA": {
-		"h2": "Build Your Landing Page Now",
-		"h3": "Build your landing page, show your product, and start earning!"
+		"h2": "Install Now",
+		"h3": "View your business on Odoo anytime, anywhere!"
 	},
 	"CTAButton": {
-		"btn1": "Get Source Code",
-		"btn2": "View Docs"
+		"btn1": "Get Apk",
+		"btn2": "View Documentation"
 	}
 }

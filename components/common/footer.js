@@ -27,19 +27,19 @@ export default function Footer() {
 			<div className='max-w-[1024px] mx-auto flex flex-col md:flex-row justify-between items-center md:items-end gap-2 text-sm'>
 				<div className='flex flex-col items-center md:items-start'>
 					<a
-						aria-label='landing page template'
+						aria-label='moco odoo client'
 						className='flex items-center mb-3'
-						title='landing page template'
+						title='moco odoo client'
 						href={`/${langName}`}
 					>
 						<Image
 							width={200}
 							height={200}
-							src={'/logo.gif'}
+							src={'/odoo.png'}
 							className='transition-all hover:scale-110 w-6 md:w-10 h-6 md:h-10'
 							alt='logo'
 						></Image>
-						<h2 className='ml-3 font-bold leading-5'>Landing Page</h2>
+						<h2 className='ml-3 font-bold leading-5'>Moco Odoo Client</h2>
 					</a>
 					<div className='flex flex-wrap justify-center gap-x-2 md:gap-x-5 gap-y-1'>
 						{linkList.map((link, index) => {
@@ -59,11 +59,11 @@ export default function Footer() {
 				<p>
 					©{' '}
 					<a
-						title={'huglemon'}
-						href='http://huglemon.com?rel=landingpage'
+						title={'glovebx'}
+						href='https://github.com/glovebx/moco-odoo-client'
 						target='_blank'
 					>
-						hugLemon
+						moco.co
 					</a>{' '}
 					present.
 				</p>

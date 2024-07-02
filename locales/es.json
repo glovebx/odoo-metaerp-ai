@@ -1,40 +1,40 @@
 {
 	"Hero": {
-		"h1": "Crea Páginas de Destino Más Rápido",
-		"h2": "Esta es una plantilla de página de destino gratuita, de código abierto y poderosa para proyectos de SaaS, te ayudará a hacer que tu startup sea más rápida."
+		"h1": "Cliente Odoo para Android",
+		"h2": "Esta es una aplicación gratuita y poderosa de Odoo para Android, que admite la versión de la comunidad y la versión empresarial de Odoo de la versión 17+ y superior, y también admite especialmente la versión empresarial 14."
 	},
 	"Feature": {
-		"h2": "Nuestras Características",
-		"h3": "Características de la Plantilla de Página de Destino inWind",
-		"description1": "Increíble plantilla de página de destino.",
-		"description2": "Basada en Next.JS, DaisyUI, TailwindCSS y otras bibliotecas poderosas.",
-		"description3": "Completamente de código abierto y completamente gratuita."
+		"h2": "Feature",
+		"h3": "Características del cliente Moco Odoo para Android",
+		"description1": "Admite la versión de la comunidad y la versión empresarial de Odoo de la versión 17+ y superior",
+		"description2": "Integra GMS/HMS, admite notificaciones nativas de Android",
+		"description3": "Totalmente gratuito para usuarios individuales"
 	},
 	"Pricing": {
-		"h2": "Nuestros Precios",
-		"h3": "Elige Tu Plan",
-		"description": "Selecciona el plan que mejor se adapte a tus necesidades.",
-		"doYouLike": "¿Te gusta esta plantilla de página de destino?",
+		"h2": "Pricing",
+		"h3": "Elija su plan",
+		"description": "Elija el plan que mejor se adapte a sus necesidades.",
+		"doYouLike": "¿Te gusta esta aplicación?",
 		"follow": "Sigue mi Twitter."
 	},
 	"Testimonial": {
-		"h2": "Testimonios",
-		"h3": "Muro del Amor",
-		"description1": "Si usas esta plantilla de página de destino y la recomiendas en tu Twitter,",
-		"description2": "por favor házmelo saber",
-		"description3": ",mostraré tu tweet y recomendación aquí."
+		"h2": "Testimonial",
+		"h3": "Testimonios de clientes",
+		"description1": "Si usa esta aplicación y la recomienda en su Twitter,",
+		"description2": "por favor, házmelo saber",
+		"description3": ", y mostraré tu tweet aquí."
 	},
 	"Faq": {
-		"h2": "Preguntas Frecuentes",
-		"h3": "Preguntas Frecuentes",
+		"h2": "FAQ",
+		"h3": "Preguntas frecuentes",
 		"description": "Aquí están algunas de las preguntas más frecuentes."
 	},
 	"CTA": {
-		"h2": "Construye Tu Página de Destino Ahora",
-		"h3": "Construye tu página de destino, muestra tu producto y empieza a ganar!"
+		"h2": "Instalar ahora",
+		"h3": "¡Vea su negocio en Odoo en cualquier momento y en cualquier lugar!"
 	},
 	"CTAButton": {
-		"btn1": "Obtener Código Fuente",
-		"btn2": "Ver Documentos"
+		"btn1": "Obtener Apk",
+		"btn2": "Ver documentación"
 	}
 }
