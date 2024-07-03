@@ -63,7 +63,7 @@ export default function Footer() {
 						href='https://github.com/glovebx/moco-odoo-client'
 						target='_blank'
 					>
-						moco.co
+						MetaERP.AI
 					</a>{' '}
 					present.
 				</p>
