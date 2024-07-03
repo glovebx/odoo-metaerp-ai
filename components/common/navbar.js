@@ -30,9 +30,9 @@ export default function Navbar() {
 	return (
 		<header className='w-full z-50 bg-base-100 p-5 pb-0 max-w-[1280px] mx-auto md:mb-5 flex justify-between items-center'>
 			<a
-				aria-label='moco odoo client'
+				aria-label='metaerp odoo client'
 				className='flex items-center w-1/2 md:w-1/5'
-				title='moco odoo client'
+				title='metaerp odoo client'
 				href={`/${langName}`}
 			>
 				<Image
@@ -42,7 +42,7 @@ export default function Navbar() {
 					className='transition-all hover:scale-110 w-6 md:w-10 h-6 md:h-10'
 					alt='logo'
 				></Image>
-				<h2 className='ml-3 font-bold leading-5'>Moco Odoo Client</h2>
+				<h2 className='ml-3 font-bold leading-5'>MetaERP Odoo Client</h2>
 			</a>
 
 			<ul className='w-3/5 px-5 font-medium hidden md:flex flex-nowrap items-center justify-around'>

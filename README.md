@@ -1,12 +1,12 @@
 ![screenshot](https://mp-bca925c9-72bc-4e92-8c87-d596015241bf.cdn.bspapp.com/2024/06/29/48052030-56853423-SafariLight.png)
 
-# [inWind Moco Odoo Client](https://odoo.metaerp.ai/)
+# [MetaERP Odoo Client](https://odoo.metaerp.ai/)
 
 🌍 *[English](README.md) ∙ [简体中文](README-zh.md)*
 
 ### What is inWind Landing Page
 
-inWind Landing Page is a Moco Odoo Client developed for global SaaS projects based on Next.js. It is completely open source, free, and offers perfect SEO and multi-language support.
+inWind Landing Page is a MetaERP Odoo Client developed for global SaaS projects based on Next.js. It is completely open source, free, and offers perfect SEO and multi-language support.
 
 ### Why develop inWind Landing Page
 
