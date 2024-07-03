@@ -1,6 +1,7 @@
 import './globals.css';
 // import { Plus_Jakarta_Sans } from 'next/font/google';
 
+import { Analytics } from "@vercel/analytics/react"
 import { SiteConfig } from '@/lib/config/site';
 import CustomHead from '@/components/common/head';
 import Navbar from '@/components/common/navbar';
