@@ -1,5 +1,5 @@
 import './globals.css';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+// import { Plus_Jakarta_Sans } from 'next/font/google';
 
 import { SiteConfig } from '@/lib/config/site';
 import CustomHead from '@/components/common/head';
@@ -19,16 +19,17 @@ export const metadata = {
 	twitter: SiteConfig.twitter,
 };
 
-const jakarta = Plus_Jakarta_Sans({
-	weight: ['500', '800'],
-	subsets: ['latin'],
-});
+// const jakarta = Plus_Jakarta_Sans({
+// 	weight: ['500', '800'],
+// 	subsets: ['latin'],
+// });
 
 export default async function RootLayout({ children }) {
 	return (
 		<html
 			lang='en'
-			className={jakarta.className}
+			// className={jakarta.className}
+			suppressHydrationWarning
 		>
 			<head>
 				<CustomHead />

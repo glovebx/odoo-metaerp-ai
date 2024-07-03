@@ -8,7 +8,7 @@ export default function ThemeToggle() {
 
 	return (
 		<label
-			for='toggleTheme'
+			htmlFor='toggleTheme'
 			className='swap swap-rotate text-base-content md:bg-base-100 md:rounded-full w-5 md:w-8 h-5 md:h-8 md:shadow-sm md:hover:shadow-md transition-all'
 		>
 			<input
