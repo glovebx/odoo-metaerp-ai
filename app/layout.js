@@ -34,6 +34,7 @@ export default async function RootLayout({ children }) {
 		>
 			<head>
 				<CustomHead />
+				<meta name="google-site-verification" content="UnzAE6EtauPb7XJJI75yBpmpLCUC1TRmIiU_M3Girn0" />
 			</head>
 			<body>
 				<ThemeProvider>
