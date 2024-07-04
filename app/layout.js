@@ -44,6 +44,7 @@ export default async function RootLayout({ children }) {
 						<Footer />
 					</div>
 				</ThemeProvider>
+				<Analytics />				
 			</body>
 		</html>
 	);
