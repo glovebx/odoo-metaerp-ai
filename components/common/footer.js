@@ -47,7 +47,7 @@ export default function Footer() {
 								<a
 									key={index}
 									title={link.name}
-									href={`/${langName}${link.url}`}
+									href={link.url.substr(0, 4) !== 'http' ? `/${langName}${link.url}` : link.url}
 								>
 									{link.name}
 								</a>

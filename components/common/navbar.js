@@ -56,7 +56,7 @@ export default function Navbar() {
 								aria-label={link.name}
 								className='group relative'
 								title={link.name}
-								href={`/${langName}${link.url}`}
+								href={link.url.substr(0, 4) !== 'http' ? `/${langName}${link.url}` : link.url}
 							>
 								{link.name}
 								<div className='absolute left-[50%] group-hover:left-0 w-0 group-hover:w-full h-[3px] transition-all duration-300 bg-base-content/90'></div>
