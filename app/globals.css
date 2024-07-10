@@ -16,6 +16,13 @@
   }
 }
 
+/* 如果不支持 background-clip，则使用 -webkit 前缀 */
+@supports not (background-clip: text) {
+	.bg-clip-text {
+		-webkit-background-clip: text;
+	}
+  }
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
