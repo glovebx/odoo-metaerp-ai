@@ -1,12 +1,12 @@
 {
 	"Hero": {
 		"h1": "Odoo Android Client",
-		"h2": "This is a free and powerful Odoo Android client that supports community and enterprise editions from version 17+ and above, and also specially supports version 14 enterprise edition."
+		"h2": "This is a free and powerful Odoo Android client that supports community and enterprise editions from version 16+ and above, and also specially supports version 14 enterprise edition."
 	},
 	"Feature": {
 		"h2": "Feature",
 		"h3": "Features of MetaERP Odoo Android Client",
-		"description1": "Supports community and enterprise editions from version 17+ and above",
+		"description1": "Supports community and enterprise editions from version 16+ and above",
 		"description2": "Integrates GMS/HMS, supports native Android message notifications",
 		"description3": "Completely free for individual users"
 	},

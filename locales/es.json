@@ -1,12 +1,12 @@
 {
 	"Hero": {
 		"h1": "Cliente Odoo para Android",
-		"h2": "Esta es una aplicación gratuita y poderosa de Odoo para Android, que admite la versión de la comunidad y la versión empresarial de Odoo de la versión 17+ y superior, y también admite especialmente la versión empresarial 14."
+		"h2": "Esta es una aplicación gratuita y poderosa de Odoo para Android, que admite la versión de la comunidad y la versión empresarial de Odoo de la versión 16+ y superior, y también admite especialmente la versión empresarial 14."
 	},
 	"Feature": {
 		"h2": "Feature",
 		"h3": "Características del cliente MetaERP Odoo para Android",
-		"description1": "Admite la versión de la comunidad y la versión empresarial de Odoo de la versión 17+ y superior",
+		"description1": "Admite la versión de la comunidad y la versión empresarial de Odoo de la versión 16+ y superior",
 		"description2": "Integra GMS/HMS, admite notificaciones nativas de Android",
 		"description3": "Totalmente gratuito para usuarios individuales"
 	},
