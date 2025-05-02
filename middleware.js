@@ -4,9 +4,16 @@ import { NextRequest } from 'next/server';
 export function middleware(request) {
 	const { pathname } = request.nextUrl;
 
-	const isExit = locales.some((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
+	const isLocalizedPath = locales.some((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
 
-	if (isExit) return;
+    // --- 定义不需要被重定向的特定路径 ---
+    // 将 '/news.html' 添加到豁免列表
+    const isExemptPath = pathname === '/news.html';
+
+    // 如果路径已经包含 locale，或者它是我们豁免的路径，则直接放行
+    if (isLocalizedPath || isExemptPath) {
+        return;
+    }
 
 	request.nextUrl.pathname = `/`;
 	return Response.redirect(request.nextUrl);
