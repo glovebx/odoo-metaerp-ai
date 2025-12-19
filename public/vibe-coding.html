@@ -1,0 +1,1930 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AI 应用创新：精选 GitHub 项目深度解析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-content: #ffffff;
+            --secondary: #64748b;
+            --accent: #3b82f6;
+            --neutral: #0f172a;
+            --base-100: #ffffff;
+            --base-200: #f8fafc;
+            --base-300: #e2e8f0;
+            --info: #0ea5e9;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .serif {
+            font-family: 'Crimson Text', serif;
+        }
+
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid #e2e8f0;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .citation {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted var(--primary);
+            transition: all 0.2s ease;
+        }
+
+        .citation:hover {
+            background-color: var(--primary);
+            color: white;
+            border-radius: 4px;
+            padding: 2px 4px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            min-height: 300px;
+            max-height: 800px;
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mermaid-container .mermaid {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            cursor: grab;
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            touch-action: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .mermaid-container .mermaid svg {
+            max-width: 100%;
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .mermaid-container .mermaid:active {
+            cursor: grabbing;
+        }
+
+        .mermaid-container.zoomed .mermaid {
+            height: 100%;
+            width: 100%;
+            cursor: grab;
+        }
+
+        .mermaid-controls {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mermaid-control-btn {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #374151;
+            font-size: 14px;
+            min-width: 36px;
+            height: 36px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mermaid-control-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+            transform: translateY(-1px);
+        }
+
+        .mermaid-control-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Mermaid theme customization for better contrast and unified styling */
+        .mermaid {
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        .mermaid .node rect,
+        .mermaid .node circle,
+        .mermaid .node ellipse,
+        .mermaid .node polygon {
+            fill: #ffffff !important;
+            stroke: var(--primary) !important;
+            stroke-width: 2px !important;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Different node types with better contrast */
+        .mermaid .node:nth-child(4n+1) rect,
+        .mermaid .node:nth-child(4n+1) circle,
+        .mermaid .node:nth-child(4n+1) ellipse,
+        .mermaid .node:nth-child(4n+1) polygon {
+            fill: #eff6ff !important;
+            stroke: #1e40af !important;
+        }
+
+        .mermaid .node:nth-child(4n+2) rect,
+        .mermaid .node:nth-child(4n+2) circle,
+        .mermaid .node:nth-child(4n+2) ellipse,
+        .mermaid .node:nth-child(4n+2) polygon {
+            fill: #f0fdf4 !important;
+            stroke: #059669 !important;
+        }
+
+        .mermaid .node:nth-child(4n+3) rect,
+        .mermaid .node:nth-child(4n+3) circle,
+        .mermaid .node:nth-child(4n+3) ellipse,
+        .mermaid .node:nth-child(4n+3) polygon {
+            fill: #fef3c7 !important;
+            stroke: #d97706 !important;
+        }
+
+        .mermaid .node:nth-child(4n+4) rect,
+        .mermaid .node:nth-child(4n+4) circle,
+        .mermaid .node:nth-child(4n+4) ellipse,
+        .mermaid .node:nth-child(4n+4) polygon {
+            fill: #fef2f2 !important;
+            stroke: #dc2626 !important;
+        }
+
+        /* Special styling for different node types to ensure contrast */
+        .mermaid .startNode rect,
+        .mermaid .startNode circle,
+        .mermaid .startNode ellipse,
+        .mermaid .startNode polygon {
+            fill: #dbeafe !important;
+            stroke: #1e40af !important;
+            stroke-width: 3px !important;
+        }
+
+        .mermaid .endNode rect,
+        .mermaid .endNode circle,
+        .mermaid .endNode ellipse,
+        .mermaid .endNode polygon {
+            fill: #dcfce7 !important;
+            stroke: #059669 !important;
+            stroke-width: 3px !important;
+        }
+
+        .mermaid .processNode rect,
+        .mermaid .processNode circle,
+        .mermaid .processNode ellipse,
+        .mermaid .processNode polygon {
+            fill: #f1f5f9 !important;
+            stroke: #475569 !important;
+            stroke-width: 2px !important;
+        }
+
+        .mermaid .decisionNode rect,
+        .mermaid .decisionNode circle,
+        .mermaid .decisionNode ellipse,
+        .mermaid .decisionNode polygon {
+            fill: #fef3c7 !important;
+            stroke: #d97706 !important;
+            stroke-width: 2px !important;
+        }
+
+        .mermaid .edgePath .path {
+            stroke: var(--secondary) !important;
+            stroke-width: 2px !important;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+        }
+
+        .mermaid .edgeLabel {
+            background-color: white !important;
+            border-radius: 6px !important;
+            padding: 4px 8px !important;
+            font-size: 12px !important;
+            font-weight: 500 !important;
+            color: var(--neutral) !important;
+            border: 1px solid #e2e8f0 !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .mermaid .nodeLabel {
+            color: var(--neutral) !important;
+            font-size: 13px !important;
+            font-weight: 500 !important;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+            line-height: 1.3 !important;
+        }
+
+        /* Enhanced contrast for different node types */
+        .mermaid .startNode .nodeLabel {
+            color: #1e40af !important;
+            font-weight: 600 !important;
+        }
+
+        .mermaid .endNode .nodeLabel {
+            color: #059669 !important;
+            font-weight: 600 !important;
+        }
+
+        .mermaid .processNode .nodeLabel {
+            color: #475569 !important;
+        }
+
+        .mermaid .decisionNode .nodeLabel {
+            color: #92400e !important;
+            font-weight: 600 !important;
+        }
+
+        /* Sequence diagram specific styling */
+        .mermaid .actor {
+            stroke: var(--primary) !important;
+            fill: #ffffff !important;
+        }
+
+        .mermaid text.actor {
+            fill: var(--neutral) !important;
+            font-weight: 600 !important;
+        }
+
+        .mermaid .signal {
+            stroke: var(--secondary) !important;
+            stroke-width: 2px !important;
+        }
+
+        .mermaid .note {
+            fill: #fef3c7 !important;
+            stroke: #f59e0b !important;
+        }
+
+        .mermaid .noteText {
+            fill: #92400e !important;
+            font-weight: 500 !important;
+        }
+
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            .toc-fixed.open {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .mermaid-control-btn:not(.reset-zoom) {
+                display: none;
+            }
+            .mermaid-controls {
+                top: auto;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        /* Prevent horizontal overflow on small screens */
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+            .hero-grid {
+                gap: 1rem;
+            }
+            .hero-grid > div:first-child h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            .hero-grid > div:first-child p {
+                font-size: 1rem;
+            }
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            .project-card {
+                padding: 1.5rem;
+            }
+            .flex-wrap.gap-4 {
+                gap: 0.5rem;
+            }
+            .tech-badge {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.75rem;
+            }
+            .mermaid-container {
+                padding: 15px;
+            }
+            .px-8 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .py-12 {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            .py-16 {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+            .space-y-16 > div {
+                margin-bottom: 3rem;
+            }
+            .text-5xl {
+                font-size: 2.25rem;
+            }
+            .text-6xl {
+                font-size: 2.5rem;
+            }
+            .text-3xl {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+  </head>
+
+  <body class="bg-gradient-to-br from-slate-50 to-blue-50">
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-button" class="lg:hidden fixed top-4 left-4 z-50 bg-white p-3 rounded-full shadow-lg">
+      <i class="fas fa-bars text-slate-700"></i>
+    </button>
+
+    <!-- Table of Contents -->
+    <nav class="toc-fixed" id="toc">
+      <div class="mb-8">
+        <h2 class="text-xl font-bold text-slate-800 mb-4">目录导航</h2>
+        <div class="space-y-2">
+          <a href="#hero" class="block py-2 px-3 text-sm text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">概述</a>
+          <a href="#ai-agents" class="block py-2 px-3 text-sm text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">智能代理与自动化</a>
+          <div class="ml-4 space-y-1">
+            <a href="#pagetalk" class="block py-1 px-3 text-xs text-slate-500 hover:text-blue-600 transition-all">PageTalk</a>
+            <a href="#ai-werewolf" class="block py-1 px-3 text-xs text-slate-500 hover:text-blue-600 transition-all">AI-Werewolf</a>
+            <a href="#webqa-agent" class="block py-1 px-3 text-xs text-slate-500 hover:text-blue-600 transition-all">webqa-agent</a>
+            <a href="#vibe-remote" class="block py-1 px-3 text-xs text-slate-500 hover:text-blue-600 transition-all">vibe-remote</a>
+          </div>
+          <a href="#content-creation" class="block py-2 px-3 text-sm text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">AI赋能内容创作</a>
+          <div class="ml-4 space-y-1">
+            <a href="#metanovel" class="block py-1 px-3 text-xs text-slate-500 hover:text-blue-600 transition-all">MetaNovel-Engine</a>
+            <a href="#neolish" class="block py-1 px-3 text-xs text-slate-500 hover:text-blue-600 transition-all">Neolish</a>
+          </div>
+          <a href="#infrastructure" class="block py-2 px-3 text-sm text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">AI基础设施</a>
+          <div class="ml-4 space-y-1">
+            <a href="#one-mcp" class="block py-1 px-3 text-xs text-slate-500 hover:text-blue-600 transition-all">one-mcp</a>
+            <a href="#mysql-mcp" class="block py-1 px-3 text-xs text-slate-500 hover:text-blue-600 transition-all">mysql-mcp-server</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section id="hero" class="flex items-center">
+        <div class="container mx-auto px-8 py-16">
+          <div class="hero-grid">
+            <div class="space-y-8">
+              <div class="space-y-4">
+                <h1 class="text-6xl font-bold text-slate-900 leading-tight serif italic">
+                  AI 应用创新
+                </h1>
+                <p class="text-2xl text-slate-600 font-light">
+                  精选 GitHub Vibe-Coding 开源项目深度解析
+                </p>
+              </div>
+
+              <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-blue-100">
+                <h3 class="text-xl font-semibold text-slate-800 mb-6">核心洞察</h3>
+                <div class="grid grid-cols-2 gap-6">
+                  <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-600">8</div>
+                    <div class="text-sm text-slate-600">创新项目</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-3xl font-bold text-green-600">3</div>
+                    <div class="text-sm text-slate-600">核心领域</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-3xl font-bold text-purple-600">100%</div>
+                    <div class="text-sm text-slate-600">开源项目</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-3xl font-bold text-orange-600">∞</div>
+                    <div class="text-sm text-slate-600">应用潜力</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <img src="./vibe-coding/cover.png" alt="代表人工智能创新的抽象几何图案" class="w-full h-96 object-cover rounded-3xl shadow-2xl" size="medium" aspect="wide" query="人工智能创新抽象几何" referrerpolicy="no-referrer"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Agents &amp; Automation -->
+      <section id="ai-agents" class="py-16 bg-white">
+        <div class="container mx-auto px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold text-slate-900 mb-6 serif">智能代理与自动化工具</h2>
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+              探索 AI 代理如何通过自然语言交互和多智能体协作，重塑我们的数字体验
+            </p>
+          </div>
+
+          <!-- PageTalk -->
+          <div id="pagetalk" class="mb-20">
+            <div class="project-card">
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6">
+                  <div class="flex items-center space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                      <i class="fas fa-comments text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-3xl font-bold text-slate-900">PageTalk</h3>
+                      <p class="text-slate-600">您的 AI 网页伴侣</p>
+                    </div>
+                  </div>
+
+                  <div class="prose prose-lg max-w-none">
+                    <p class="text-slate-700 leading-relaxed">
+                      PageTalk 是一款功能强大且开源的浏览器扩展程序，旨在通过集成先进的人工智能技术，彻底改变用户与网页内容的交互方式<a href="https://github.com/jeanchristophe13v/PageTalk" class="citation">[192]</a>。该项目的核心目标是让用户能够直接与任何网页进行对话，从而更高效地获取、理解和处理信息。
+                    </p>
+
+                    <div class="bg-blue-50 p-6 rounded-xl my-6">
+                      <h4 class="font-semibold text-blue-900 mb-3">核心功能亮点</h4>
+                      <ul class="space-y-2 text-slate-700">
+                        <li>• <strong>多智能体系统</strong>：支持创建、定制和切换不同的 AI 代理</li>
+                        <li>• <strong>多模态交互</strong>：支持图像输入和解读分析</li>
+                        <li>• <strong>丰富的内容渲染</strong>：支持 Markdown、代码高亮、LaTeX 公式和 Mermaid 图表</li>
+                        <li>• <strong>跨平台支持</strong>：集成 OpenAI、Claude、Gemini 等多个 AI 平台</li>
+                      </ul>
+                    </div>
+
+                    <blockquote class="border-l-4 border-blue-500 pl-6 italic text-slate-600 my-6">
+                      &#34;通过将复杂的 AI 模型能力封装在一个简洁易用的侧边栏界面中，PageTalk 使得普通用户也能轻松享受到前沿 AI 技术带来的便利。&#34;
+                    </blockquote>
+                  </div>
+
+                  <div class="flex flex-wrap gap-4">
+                    <span class="tech-badge">JavaScript (93.3%)</span>
+                    <span class="tech-badge">CSS (5.5%)</span>
+                    <span class="tech-badge">HTML (1.2%)</span>
+                    <span class="tech-badge">Browser Extension</span>
+                    <span class="tech-badge">Gemini API</span>
+                  </div>
+                </div>
+
+                <div class="space-y-6">
+                  <img src="./vibe-coding/pagetalk.png" alt="浏览器侧边栏AI助手界面" class="w-full rounded-xl shadow-lg" size="medium" aspect="wide" query="浏览器AI助手侧边栏界面" referrerpolicy="no-referrer"/>
+
+                  <div class="bg-slate-50 p-6 rounded-xl">
+                    <h4 class="font-semibold text-slate-900 mb-4">应用场景</h4>
+                    <div class="space-y-3 text-sm">
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-graduation-cap text-green-600"></i>
+                        <span class="text-slate-700">学术研究与论文阅读</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-language text-blue-600"></i>
+                        <span class="text-slate-700">多语言翻译与内容理解</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-file-alt text-purple-600"></i>
+                        <span class="text-slate-700">PDF 解析与内容摘要</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-video text-red-600"></i>
+                        <span class="text-slate-700">YouTube 视频内容摘要</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PageTalk Mermaid Diagram -->
+              <div class="mt-12">
+                <h4 class="text-2xl font-semibold text-slate-900 mb-6 text-center">核心交互流程</h4>
+                <div class="mermaid-container">
+                  <div class="mermaid-controls">
+                    <button class="mermaid-control-btn zoom-in" title="放大">
+                      <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button class="mermaid-control-btn zoom-out" title="缩小">
+                      <i class="fas fa-search-minus"></i>
+                    </button>
+                    <button class="mermaid-control-btn reset-zoom" title="重置">
+                      <i class="fas fa-expand-arrows-alt"></i>
+                    </button>
+                    <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                      <i class="fas fa-expand"></i>
+                    </button>
+                  </div>
+                  <div class="mermaid">
+                    sequenceDiagram
+                    participant User
+                    participant Extension_UI as &#34;Extension UI (Sidebar)&#34;
+                    participant Content_Script as &#34;Content Script&#34;
+                    participant Background_SW as &#34;Background Service Worker&#34;
+                    participant Backend_API as &#34;Backend API&#34;
+                    participant Gemini_API as &#34;Google Gemini API&#34;
+
+                    User-&gt;&gt;Extension_UI: 1. 点击扩展图标或按快捷键 (Alt+P)
+                    Extension_UI-&gt;&gt;Background_SW: 2. 请求打开侧边栏
+                    Background_SW-&gt;&gt;Content_Script: 3. 注入内容脚本到当前标签页
+                    Content_Script-&gt;&gt;Content_Script: 4. 提取网页主要内容 (DOM)
+                    Content_Script-&gt;&gt;Extension_UI: 5. 将提取的内容发送给侧边栏
+                    Extension_UI-&gt;&gt;User: 6. 显示侧边栏界面和网页内容摘要
+
+                    User-&gt;&gt;Extension_UI: 7. 输入问题或指令 (e.g., &#34;总结这篇文章&#34;)
+                    Extension_UI-&gt;&gt;Backend_API: 8. 发送用户指令和网页内容
+                    Backend_API-&gt;&gt;Backend_API: 9. 构建优化后的 Prompt
+                    Backend_API-&gt;&gt;Gemini_API: 10. 调用 Gemini API
+                    Gemini_API-&gt;&gt;Backend_API: 11. 返回 AI 生成的响应 (流式)
+                    Backend_API-&gt;&gt;Extension_UI: 12. 将响应流式传输给前端
+                    Extension_UI-&gt;&gt;User: 13. 实时显示 AI 的回答
+
+                    User-&gt;&gt;Extension_UI: 14. 可以继续提问或进行其他操作
+                    Extension_UI-&gt;&gt;Backend_API: 15. 发送后续对话请求 (包含上下文)
+                    Backend_API-&gt;&gt;Gemini_API: 16. 再次调用 API
+                    Gemini_API-&gt;&gt;Backend_API: 17. 返回新的响应
+                    Backend_API-&gt;&gt;Extension_UI: 18. 传输响应
+                    Extension_UI-&gt;&gt;User: 19. 显示更新后的对话内容
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI-Werewolf -->
+          <div id="ai-werewolf" class="mb-20">
+            <div class="project-card">
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6">
+                  <div class="flex items-center space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-600 rounded-xl flex items-center justify-center">
+                      <i class="fas fa-users text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-3xl font-bold text-slate-900">AI-Werewolf</h3>
+                      <p class="text-slate-600">AI 驱动的多人狼人杀游戏框架</p>
+                    </div>
+                  </div>
+
+                  <div class="prose prose-lg max-w-none">
+                    <p class="text-slate-700 leading-relaxed">
+                      AI-Werewolf 是一个由 Monad 开发者社区发起的创新项目，旨在构建一个由 AI 驱动的多人狼人杀游戏框架<a href="https://github.com/monad-developers" class="citation">[4]</a>。该项目不仅仅是一个简单的游戏实现，更是一个探索多智能体系统、博弈论和自然语言处理在复杂社交推理场景中应用的实验平台。
+                    </p>
+
+                    <div class="bg-orange-50 p-6 rounded-xl my-6">
+                      <h4 class="font-semibold text-orange-900 mb-3">技术挑战</h4>
+                      <p class="text-slate-700">
+                        狼人杀游戏包含了欺骗、推理、合作与背叛等多种复杂的人类社交行为，将这些元素交由 AI 来处理，是对当前 AI 技术的一次巨大挑战。AI 玩家需要能够根据游戏进程、其他玩家的发言和行为，进行逻辑推理、制定策略，并通过自然语言与其他玩家进行交流和欺骗。
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-wrap gap-4">
+                    <span class="tech-badge">Multi-Agent System</span>
+                    <span class="tech-badge">Game Theory</span>
+                    <span class="tech-badge">Natural Language Processing</span>
+                    <span class="tech-badge">Reinforcement Learning</span>
+                  </div>
+                </div>
+
+                <div class="space-y-6">
+                  <img src="./vibe-coding/ai-werewolf.jpg" alt="狼人杀游戏中的AI玩家互动场景" class="w-full rounded-xl shadow-lg" size="medium" aspect="wide" query="AI狼人杀游戏" referrerpolicy="no-referrer"/>
+
+                  <div class="bg-slate-50 p-6 rounded-xl">
+                    <h4 class="font-semibold text-slate-900 mb-4">研究价值</h4>
+                    <div class="space-y-3 text-sm">
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-brain text-blue-600"></i>
+                        <span class="text-slate-700">多智能体协作与欺骗</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-chess text-green-600"></i>
+                        <span class="text-slate-700">不完全信息博弈策略</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-comments text-purple-600"></i>
+                        <span class="text-slate-700">自然语言理解与生成</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-network-wired text-red-600"></i>
+                        <span class="text-slate-700">社交智能建模</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- AI-Werewolf Mermaid Diagram -->
+              <div class="mt-12">
+                <h4 class="text-2xl font-semibold text-slate-900 mb-6 text-center">系统架构图</h4>
+                <div class="mermaid-container">
+                  <div class="mermaid-controls">
+                    <button class="mermaid-control-btn zoom-in" title="放大">
+                      <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button class="mermaid-control-btn zoom-out" title="缩小">
+                      <i class="fas fa-search-minus"></i>
+                    </button>
+                    <button class="mermaid-control-btn reset-zoom" title="重置">
+                      <i class="fas fa-expand-arrows-alt"></i>
+                    </button>
+                    <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                      <i class="fas fa-expand"></i>
+                    </button>
+                  </div>
+                  <div class="mermaid">
+graph TD
+    subgraph "Game Engine"
+        A[Game Master] --> B{Game State}
+        B --> C[Rule Engine]
+        C --> D[Action Queue]
+    end
+
+    subgraph "AI Players"
+        E[AI Agent 1<br/>Werewolf]
+        F[AI Agent 2<br/>Seer]
+        G[AI Agent 3<br/>Villager]
+        H[...Other Agents]
+    end
+
+    subgraph "Environment"
+        I[Game Log<br/>Public Chat]
+        J[Private Messages<br/>Night Actions]
+    end
+
+    A -->|Broadcast Game State| E
+    A -->|Broadcast Game State| F
+    A -->|Broadcast Game State| G
+    A -->|Broadcast Game State| H
+
+    E -->|Submit Action e.g., Kill, Vote, Speak| D
+    F -->|Submit Action e.g., Check, Vote, Speak| D
+    G -->|Submit Action e.g., Vote, Speak| D
+    H -->|Submit Action| D
+
+    D -->|Execute Actions| C
+    C -->|Update Game State| B
+    B -->|Log Public Events| I
+    A -->|Send Private Info| J
+
+    E -->|Read Public Log| I
+    F -->|Read Public Log| I
+    G -->|Read Public Log| I
+    H -->|Read Public Log| I
+
+    E -->|Receive Night Action Result| J
+    F -->|Receive Night Action Result| J
+    G -->|Receive Night Action Result| J
+    H -->|Receive Night Action Result| J
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#ccf,stroke:#333,stroke-width:2px
+    style C fill:#ccf,stroke:#333,stroke-width:2px
+    style D fill:#ccf,stroke:#333,stroke-width:2px
+    style E fill:#f88,stroke:#333,stroke-width:2px
+    style F fill:#8f8,stroke:#333,stroke-width:2px
+    style G fill:#88f,stroke:#333,stroke-width:2px
+    style H fill:#ff8,stroke:#333,stroke-width:2px
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- webqa-agent -->
+          <div id="webqa-agent" class="mb-20">
+            <div class="project-card">
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6">
+                  <div class="flex items-center space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl flex items-center justify-center">
+                      <i class="fas fa-search text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-3xl font-bold text-slate-900">webqa-agent</h3>
+                      <p class="text-slate-600">全自动网页评估测试代理</p>
+                    </div>
+                  </div>
+
+                  <div class="prose prose-lg max-w-none">
+                    <p class="text-slate-700 leading-relaxed">
+                      webqa-agent 是一个全自动化的网页评估测试代理，旨在为任何 Web 产品提供一键式的性能、功能和交互体验诊断<a href="https://www.yjpoo.com/article/5980.html" class="citation">[5]</a>。该项目由 MigoXLab 开发，其核心目标是利用 AI 技术，特别是智能代理的能力，来模拟真实用户的行为，从而对网站进行全面的、多维度的质量检测。
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+                      <div class="bg-green-50 p-4 rounded-xl text-center">
+                        <i class="fas fa-tachometer-alt text-green-600 text-2xl mb-2"></i>
+                        <h5 class="font-semibold text-green-900">性能审计</h5>
+                        <p class="text-sm text-slate-600">页面加载速度、资源大小、渲染性能</p>
+                      </div>
+                      <div class="bg-blue-50 p-4 rounded-xl text-center">
+                        <i class="fas fa-cogs text-blue-600 text-2xl mb-2"></i>
+                        <h5 class="font-semibold text-blue-900">功能测试</h5>
+                        <p class="text-sm text-slate-600">按钮点击、表单填写、页面导航</p>
+                      </div>
+                      <div class="bg-purple-50 p-4 rounded-xl text-center">
+                        <i class="fas fa-user-check text-purple-600 text-2xl mb-2"></i>
+                        <h5 class="font-semibold text-purple-900">UX评估</h5>
+                        <p class="text-sm text-slate-600">易用性、可访问性、视觉设计</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-wrap gap-4">
+                    <span class="tech-badge">Puppeteer</span>
+                    <span class="tech-badge">Playwright</span>
+                    <span class="tech-badge">Computer Vision</span>
+                    <span class="tech-badge">NLP</span>
+                    <span class="tech-badge">Multi-Agent System</span>
+                  </div>
+                </div>
+
+                <div class="space-y-6">
+                  <img src="./vibe-coding/webqa.svg" alt="自动化网站测试工具界面" class="w-full rounded-xl shadow-lg" size="medium" aspect="wide" query="网站测试工具界面" referrerpolicy="no-referrer"/>
+
+                  <div class="bg-slate-50 p-6 rounded-xl">
+                    <h4 class="font-semibold text-slate-900 mb-4">技术优势</h4>
+                    <div class="space-y-3 text-sm">
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-robot text-green-600"></i>
+                        <span class="text-slate-700">AI驱动的智能测试</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-eye text-blue-600"></i>
+                        <span class="text-slate-700">计算机视觉分析</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-chart-line text-purple-600"></i>
+                        <span class="text-slate-700">详细的质量报告</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-magic text-red-600"></i>
+                        <span class="text-slate-700">一键式自动化</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- webqa-agent Mermaid Diagram -->
+              <div class="mt-12">
+                <h4 class="text-2xl font-semibold text-slate-900 mb-6 text-center">系统架构图</h4>
+                <div class="mermaid-container">
+                  <div class="mermaid-controls">
+                    <button class="mermaid-control-btn zoom-in" title="放大">
+                      <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button class="mermaid-control-btn zoom-out" title="缩小">
+                      <i class="fas fa-search-minus"></i>
+                    </button>
+                    <button class="mermaid-control-btn reset-zoom" title="重置">
+                      <i class="fas fa-expand-arrows-alt"></i>
+                    </button>
+                    <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                      <i class="fas fa-expand"></i>
+                    </button>
+                  </div>
+                  <div class="mermaid">
+                    graph LR
+                    subgraph &#34;User&#34;
+                    A[User Input: Test URL]
+                    end
+
+                    subgraph &#34;webqa-agent System&#34;
+                    B[Master Agent<br/>Task Planner]
+                    C[Execution Agent<br/>Browser Automation]
+                    D[Analysis Agent<br/>Data Processor]
+                    E[Report Generator]
+                    end
+
+                    subgraph &#34;Web Product&#34;
+                    F[Target Website]
+                    end
+
+                    subgraph &#34;External Tools&#34;
+                    G[Headless Browser<br/>e.g., Puppeteer]
+                    H[LLM / CV Models]
+                    end
+
+                    A -- &#34;1. Submit Test Request&#34; --&gt; B
+                    B -- &#34;2. Generate Test Plan&#34; --&gt; C
+                    C -- &#34;3. Control Browser&#34; --&gt; G
+                    G -- &#34;4. Interact with Site&#34; --&gt; F
+                    F -- &#34;5. Return Response<br/>HTML, CSS, JS&#34; --&gt; G
+                    G -- &#34;6. Capture Data<br/>Logs, Metrics, Screenshots&#34; --&gt; C
+                    C -- &#34;7. Send Raw Data&#34; --&gt; D
+                    D -- &#34;8. Analyze with AI Models&#34; --&gt; H
+                    H -- &#34;9. Return Analysis Results&#34; --&gt; D
+                    D -- &#34;10. Send Processed Issues&#34; --&gt; E
+                    E -- &#34;11. Generate Report&#34; --&gt; A
+
+                    style B fill:#f9f,stroke:#333,stroke-width:2px
+                    style C fill:#ccf,stroke:#333,stroke-width:2px
+                    style D fill:#ccf,stroke:#333,stroke-width:2px
+                    style E fill:#cff,stroke:#333,stroke-width:2px
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- vibe-remote -->
+          <div id="vibe-remote" class="mb-20">
+            <div class="project-card">
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6">
+                  <div class="flex items-center space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
+                      <i class="fas fa-code text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-3xl font-bold text-slate-900">vibe-remote</h3>
+                      <p class="text-slate-600">基于聊天的远程编码助手</p>
+                    </div>
+                  </div>
+
+                  <div class="prose prose-lg max-w-none">
+                    <p class="text-slate-700 leading-relaxed">
+                      vibe-remote 是一个创新的远程编码助手项目，它允许开发者通过 Slack 或 Telegram 等即时通讯工具，以&#34;氛围编码&#34;的方式远程控制代码的编写和执行<a href="https://www.freeyong.com/879.html" class="citation">[6]</a>。该项目的核心理念是打破传统 IDE 的束缚，将编码体验融入到更自然、更便捷的聊天场景中。
+                    </p>
+
+                    <div class="bg-purple-50 p-6 rounded-xl my-6">
+                      <h4 class="font-semibold text-purple-900 mb-3">核心特性</h4>
+                      <ul class="space-y-2 text-slate-700">
+                        <li>• <strong>自然语言编程</strong>：用自然语言描述需求，AI 自动生成代码</li>
+                        <li>• <strong>远程执行环境</strong>：安全的沙箱环境执行生成的代码</li>
+                        <li>• <strong>即时反馈</strong>：执行结果实时反馈到聊天窗口</li>
+                        <li>• <strong>版本控制</strong>：支持代码的版本管理和文件操作</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-wrap gap-4">
+                    <span class="tech-badge">Slack Bot</span>
+                    <span class="tech-badge">Telegram Bot</span>
+                    <span class="tech-badge">LLM Integration</span>
+                    <span class="tech-badge">Docker Sandbox</span>
+                    <span class="tech-badge">Natural Language Processing</span>
+                  </div>
+                </div>
+
+                <div class="space-y-6">
+                  <img src="./vibe-coding/banner.jpg" alt="聊天界面中的编程助手" class="w-full rounded-xl shadow-lg" size="medium" aspect="wide" style="photo" query="聊天编程助手界面" referrerpolicy="no-referrer"/>
+
+                  <div class="bg-slate-50 p-6 rounded-xl">
+                    <h4 class="font-semibold text-slate-900 mb-4">应用场景</h4>
+                    <div class="space-y-3 text-sm">
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-bolt text-yellow-600"></i>
+                        <span class="text-slate-700">快速原型开发</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-mobile-alt text-blue-600"></i>
+                        <span class="text-slate-700">移动端编程</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-users text-green-600"></i>
+                        <span class="text-slate-700">远程协作</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-bug text-red-600"></i>
+                        <span class="text-slate-700">紧急问题修复</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- vibe-remote Mermaid Diagram -->
+              <div class="mt-12">
+                <h4 class="text-2xl font-semibold text-slate-900 mb-6 text-center">核心交互流程</h4>
+                <div class="mermaid-container">
+                  <div class="mermaid-controls">
+                    <button class="mermaid-control-btn zoom-in" title="放大">
+                      <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button class="mermaid-control-btn zoom-out" title="缩小">
+                      <i class="fas fa-search-minus"></i>
+                    </button>
+                    <button class="mermaid-control-btn reset-zoom" title="重置">
+                      <i class="fas fa-expand-arrows-alt"></i>
+                    </button>
+                    <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                      <i class="fas fa-expand"></i>
+                    </button>
+                  </div>
+                  <div class="mermaid">
+                    sequenceDiagram
+                    participant User as 用户 (Slack/Telegram)
+                    participant Bot as 聊天机器人
+                    participant Core as vibe-remote 核心
+                    participant LLM as 大语言模型
+                    participant Sandbox as 代码执行沙箱
+
+                    User-&gt;&gt;Bot: 发送自然语言指令
+                    Bot-&gt;&gt;Core: 转发指令
+                    Core-&gt;&gt;LLM: 构造 Prompt 并请求生成代码
+                    LLM--&gt;&gt;Core: 返回生成的代码
+                    Core-&gt;&gt;Sandbox: 在沙箱中执行代码
+                    Sandbox--&gt;&gt;Core: 返回执行结果 (输出/错误/文件)
+                    Core-&gt;&gt;Bot: 格式化结果
+                    Bot-&gt;&gt;User: 发送结果到聊天窗口
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI-Powered Content Creation -->
+      <section id="content-creation" class="py-16 bg-gradient-to-br from-slate-50 to-purple-50">
+        <div class="container mx-auto px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold text-slate-900 mb-6 serif">AI 赋能的内容创作</h2>
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+              探索 AI 如何通过结构化方法和多语言支持，革新长篇内容创作和营销文案
+            </p>
+          </div>
+
+          <!-- MetaNovel-Engine -->
+          <div id="metanovel" class="mb-20">
+            <div class="project-card">
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6">
+                  <div class="flex items-center space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
+                      <i class="fas fa-book text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-3xl font-bold text-slate-900">MetaNovel-Engine</h3>
+                      <p class="text-slate-600">结构化长篇小说创作引擎</p>
+                    </div>
+                  </div>
+
+                  <div class="prose prose-lg max-w-none">
+                    <p class="text-slate-700 leading-relaxed">
+                      MetaNovel-Engine 是一个专为长篇小说创作而设计的结构化、分阶段工具链<a href="https://powerapptool.com/pagetalk-ji-yu-gemini-de-wang-ye-zhi-neng-ban-lu/" class="citation">[8]</a>。该项目的核心目标是通过工程化的方法，解决当前大语言模型在生成长篇内容时面临的两大核心挑战：<strong>上下文 token 消耗过大</strong>和<strong>&#34;幻觉&#34;问题</strong>。
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                      <div class="bg-indigo-50 p-6 rounded-xl">
+                        <h4 class="font-semibold text-indigo-900 mb-3">分阶段创作</h4>
+                        <p class="text-sm text-slate-700">
+                          将创作过程分解为&#34;构思-大纲-章节-场景&#34;等多个阶段，确保底层逻辑的稳固性
+                        </p>
+                      </div>
+                      <div class="bg-purple-50 p-6 rounded-xl">
+                        <h4 class="font-semibold text-purple-900 mb-3">结构化输入</h4>
+                        <p class="text-sm text-slate-700">
+                          通过模板化的输入引导 AI 生成符合要求的内容，降低&#34;幻觉&#34;概率
+                        </p>
+                      </div>
+                    </div>
+
+                    <blockquote class="border-l-4 border-indigo-500 pl-6 italic text-slate-600 my-6">
+                      &#34;通过将故事分解为小块，每次只将相关的上下文信息提供给 AI，可以有效节省 token 消耗，使得使用长上下文模型进行长篇创作的成本更加可控。&#34;
+                    </blockquote>
+                  </div>
+
+                  <div class="flex flex-wrap gap-4">
+                    <span class="tech-badge">Structured Content</span>
+                    <span class="tech-badge">Context Management</span>
+                    <span class="tech-badge">LLM Optimization</span>
+                    <span class="tech-badge">Version Control</span>
+                  </div>
+                </div>
+
+                <div class="space-y-6">
+                  <img src="./metanovel-engine.png" alt="分阶段小说创作工具界面" class="w-full rounded-xl shadow-lg" size="medium" aspect="wide" query="小说创作软件界面" referrerpolicy="no-referrer"/>
+
+                  <div class="bg-slate-50 p-6 rounded-xl">
+                    <h4 class="font-semibold text-slate-900 mb-4">创作流程</h4>
+                    <div class="space-y-3 text-sm">
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-globe text-blue-600"></i>
+                        <span class="text-slate-700">世界观设定</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-user-friends text-green-600"></i>
+                        <span class="text-slate-700">角色创建</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-route text-purple-600"></i>
+                        <span class="text-slate-700">情节规划</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-scroll text-orange-600"></i>
+                        <span class="text-slate-700">章节细化</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- MetaNovel-Engine Mermaid Diagram -->
+              <div class="mt-12">
+                <h4 class="text-2xl font-semibold text-slate-900 mb-6 text-center">创作流程图</h4>
+                <div class="mermaid-container">
+                  <div class="mermaid-controls">
+                    <button class="mermaid-control-btn zoom-in" title="放大">
+                      <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button class="mermaid-control-btn zoom-out" title="缩小">
+                      <i class="fas fa-search-minus"></i>
+                    </button>
+                    <button class="mermaid-control-btn reset-zoom" title="重置">
+                      <i class="fas fa-expand-arrows-alt"></i>
+                    </button>
+                    <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                      <i class="fas fa-expand"></i>
+                    </button>
+                  </div>
+                  <div class="mermaid">
+                    graph TD
+                    A[开始创作] --&gt; B{定义世界观与核心设定};
+                    B --&gt; C[生成主要角色];
+                    C --&gt; D[设计故事主线与情节线];
+                    D --&gt; E[规划章节结构];
+                    E --&gt; F{逐章创作};
+                    F --&gt; G[细化场景与对话];
+                    G --&gt; H[AI 生成初稿];
+                    H --&gt; I[人类作者审核与修改];
+                    I --&gt; J{本章是否完成?};
+                    J -- 否 --&gt; G;
+                    J -- 是 --&gt; K{是否所有章节完成?};
+                    K -- 否 --&gt; F;
+                    K -- 是 --&gt; L[整合全文并润色];
+                    L --&gt; M[完成作品];
+
+                    subgraph &#34;单章创作循环&#34;
+                    direction LR
+                    G;
+                    H;
+                    I;
+                    J;
+                    end
+
+                    style A fill:#f9f,stroke:#333,stroke-width:2px
+                    style M fill:#ccf,stroke:#333,stroke-width:2px
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Neolish -->
+          <div id="neolish" class="mb-20">
+            <div class="project-card">
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6">
+                  <div class="flex items-center space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center">
+                      <i class="fas fa-bullhorn text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-3xl font-bold text-slate-900">Neolish</h3>
+                      <p class="text-slate-600">AI 驱动的多语言营销内容创作平台</p>
+                    </div>
+                  </div>
+
+                  <div class="prose prose-lg max-w-none">
+                    <p class="text-slate-700 leading-relaxed">
+                      Neolish 是一个专为营销领域打造的 AI 驱动内容创作平台，其核心特色是支持三种语言（根据项目名推测可能为英文、中文和另一种语言）<a href="https://github.com/monad-developers" class="citation">[10]</a>。该项目的核心功能是帮助营销人员、内容创作者和企业快速、高效地生成高质量的营销文案。
+                    </p>
+
+                    <div class="bg-teal-50 p-6 rounded-xl my-6">
+                      <h4 class="font-semibold text-teal-900 mb-3">核心应用场景</h4>
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                          <div class="flex items-center space-x-2">
+                            <i class="fas fa-ad text-blue-600"></i>
+                            <span class="text-sm text-slate-700">广告创意生成与 A/B 测试</span>
+                          </div>
+                          <div class="flex items-center space-x-2">
+                            <i class="fas fa-share-alt text-green-600"></i>
+                            <span class="text-sm text-slate-700">社交媒体内容日历</span>
+                          </div>
+                        </div>
+                        <div class="space-y-2">
+                          <div class="flex items-center space-x-2">
+                            <i class="fas fa-search text-purple-600"></i>
+                            <span class="text-sm text-slate-700">SEO 优化博客文章</span>
+                          </div>
+                          <div class="flex items-center space-x-2">
+                            <i class="fas fa-globe-americas text-orange-600"></i>
+                            <span class="text-sm text-slate-700">多语言本地化营销</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-wrap gap-4">
+                    <span class="tech-badge">Multi-language</span>
+                    <span class="tech-badge">Marketing Content</span>
+                    <span class="tech-badge">Fine-tuned LLM</span>
+                    <span class="tech-badge">Content Optimization</span>
+                  </div>
+                </div>
+
+                <div class="space-y-6">
+                  <img src="./vibe-coding/neolish.png" alt="多语言内容创作平台界面" class="w-full rounded-xl shadow-lg" size="medium" aspect="wide" query="多语言内容创作平台界面" referrerpolicy="no-referrer"/>
+
+                  <div class="bg-slate-50 p-6 rounded-xl">
+                    <h4 class="font-semibold text-slate-900 mb-4">技术特色</h4>
+                    <div class="space-y-3 text-sm">
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-brain text-blue-600"></i>
+                        <span class="text-slate-700">微调的专业营销模型</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-language text-green-600"></i>
+                        <span class="text-slate-700">多语言模型集成</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-mouse-pointer text-purple-600"></i>
+                        <span class="text-slate-700">用户友好的交互界面</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-target text-red-600"></i>
+                        <span class="text-slate-700">精准的目标受众定位</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Neolish Mermaid Diagram -->
+              <div class="mt-12">
+                <h4 class="text-2xl font-semibold text-slate-900 mb-6 text-center">核心交互流程</h4>
+                <div class="mermaid-container">
+                  <div class="mermaid-controls">
+                    <button class="mermaid-control-btn zoom-in" title="放大">
+                      <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button class="mermaid-control-btn zoom-out" title="缩小">
+                      <i class="fas fa-search-minus"></i>
+                    </button>
+                    <button class="mermaid-control-btn reset-zoom" title="重置">
+                      <i class="fas fa-expand-arrows-alt"></i>
+                    </button>
+                    <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                      <i class="fas fa-expand"></i>
+                    </button>
+                  </div>
+                  <div class="mermaid">
+                    graph TD
+                    A[用户发起请求] --&gt; B{请求是否包含 @ 引用?};
+                    B -- 是 --&gt; C[解析 @ 引用，定位信息源];
+                    B -- 否 --&gt; D[进行通用知识检索];
+                    C --&gt; E[提取指定信息源内容];
+                    D --&gt; F[整合检索到的通用信息];
+                    E --&gt; G[结合用户指令与指定信息，生成内容];
+                    F --&gt; H[结合用户指令与通用信息，生成内容];
+                    G --&gt; I[返回生成内容给用户];
+                    H --&gt; I;
+                    I --&gt; J{用户是否进行多轮对话?};
+                    J -- 是 --&gt; K[将当前对话上下文与历史记录结合];
+                    K --&gt; A;
+                    J -- 否 --&gt; L[结束会话];
+
+                    subgraph 核心流程
+                    A; B; C; D; E; F; G; H; I; J; K; L;
+                    end
+
+                    style A fill:#f9f,stroke:#333,stroke-width:2px
+                    style I fill:#ccf,stroke:#333,stroke-width:2px
+                    style G fill:#cff,stroke:#333,stroke-width:2px
+                    style H fill:#cff,stroke:#333,stroke-width:2px
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Infrastructure -->
+      <section id="infrastructure" class="py-16 bg-white">
+        <div class="container mx-auto px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold text-slate-900 mb-6 serif">AI 基础设施与开发工具</h2>
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+              探索支撑 AI 应用创新的底层基础设施和开发工具
+            </p>
+          </div>
+
+          <!-- one-mcp -->
+          <div id="one-mcp" class="mb-20">
+            <div class="project-card">
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6">
+                  <div class="flex items-center space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center">
+                      <i class="fas fa-network-wired text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-3xl font-bold text-slate-900">one-mcp</h3>
+                      <p class="text-slate-600">MCP 服务器的集中式代理平台</p>
+                    </div>
+                  </div>
+
+                  <div class="prose prose-lg max-w-none">
+                    <p class="text-slate-700 leading-relaxed">
+                      one-mcp 是一个为模型上下文协议（Model-Context Protocol, MCP）服务器设计的集中式代理平台。它的核心目标是解决在开发和应用 AI 代理时，需要管理和连接多个独立的 MCP 服务器所带来的复杂性问题。通过 one-mcp，开发者可以将多个 MCP 服务器统一接入到一个单一的 HTTP 服务器中，并通过一个基于 Web 的管理界面进行集中管理和调度。
+                    </p>
+
+                    <div class="bg-amber-50 p-6 rounded-xl my-6">
+                      <h4 class="font-semibold text-amber-900 mb-3">核心价值</h4>
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <h5 class="font-medium text-amber-800 mb-2">简化集成</h5>
+                          <p class="text-sm text-slate-700">统一的 HTTP 入口点，简化 AI 代理与各种工具服务的集成</p>
+                        </div>
+                        <div>
+                          <h5 class="font-medium text-amber-800 mb-2">集中管理</h5>
+                          <p class="text-sm text-slate-700">Web 管理界面，动态添加、删除和配置 MCP 服务器</p>
+                        </div>
+                        <div>
+                          <h5 class="font-medium text-amber-800 mb-2">提升可维护性</h5>
+                          <p class="text-sm text-slate-700">标准化的接口设计，降低开发和维护成本</p>
+                        </div>
+                        <div>
+                          <h5 class="font-medium text-amber-800 mb-2">增强扩展性</h5>
+                          <p class="text-sm text-slate-700">模块化架构，支持灵活扩展和定制</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-wrap gap-4">
+                    <span class="tech-badge">MCP Protocol</span>
+                    <span class="tech-badge">HTTP Proxy</span>
+                    <span class="tech-badge">Web Management</span>
+                    <span class="tech-badge">Service Integration</span>
+                  </div>
+                </div>
+
+                <div class="space-y-6">
+                  <img src="./vibe-coding/dashboard.png" alt="AI代理管理平台界面" class="w-full rounded-xl shadow-lg" size="medium" aspect="wide" query="AI代理管理平台界面" referrerpolicy="no-referrer"/>
+
+                  <div class="bg-slate-50 p-6 rounded-xl">
+                    <h4 class="font-semibold text-slate-900 mb-4">应用场景</h4>
+                    <div class="space-y-3 text-sm">
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-building text-blue-600"></i>
+                        <span class="text-slate-700">企业级 AI 应用集成</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-tools text-green-600"></i>
+                        <span class="text-slate-700">AI 工具开发与测试</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-server text-purple-600"></i>
+                        <span class="text-slate-700">高可用性 AI 系统</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-puzzle-piece text-orange-600"></i>
+                        <span class="text-slate-700">模块化 AI 代理构建</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- one-mcp Mermaid Diagram -->
+              <div class="mt-12">
+                <h4 class="text-2xl font-semibold text-slate-900 mb-6 text-center">系统交互流程</h4>
+                <div class="mermaid-container">
+                  <div class="mermaid-controls">
+                    <button class="mermaid-control-btn zoom-in" title="放大">
+                      <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button class="mermaid-control-btn zoom-out" title="缩小">
+                      <i class="fas fa-search-minus"></i>
+                    </button>
+                    <button class="mermaid-control-btn reset-zoom" title="重置">
+                      <i class="fas fa-expand-arrows-alt"></i>
+                    </button>
+                    <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                      <i class="fas fa-expand"></i>
+                    </button>
+                  </div>
+                  <div class="mermaid">
+                    sequenceDiagram
+                    participant AI Agent
+                    participant one-mcp Proxy
+                    participant one-mcp Manager
+                    participant MCP Server 1
+                    participant MCP Server 2
+
+                    AI Agent-&gt;&gt;one-mcp Proxy: 发送工具调用请求
+                    one-mcp Proxy-&gt;&gt;one-mcp Manager: 查询目标 MCP 服务器地址
+                    one-mcp Manager--&gt;&gt;one-mcp Proxy: 返回 MCP Server 1 的地址
+                    one-mcp Proxy-&gt;&gt;MCP Server 1: 转发请求
+                    MCP Server 1--&gt;&gt;one-mcp Proxy: 返回执行结果
+                    one-mcp Proxy--&gt;&gt;AI Agent: 返回最终结果
+
+                    Note over one-mcp Manager: Web 管理界面操作
+                    User-&gt;&gt;one-mcp Manager: 通过 Web UI 添加新的 MCP Server 2
+                    one-mcp Manager-&gt;&gt;one-mcp Manager: 更新服务器配置
+                    one-mcp Manager--&gt;&gt;User: 显示操作成功
+
+                    AI Agent-&gt;&gt;one-mcp Proxy: 发送另一个工具调用请求
+                    one-mcp Proxy-&gt;&gt;one-mcp Manager: 查询目标 MCP 服务器地址
+                    one-mcp Manager--&gt;&gt;one-mcp Proxy: 返回 MCP Server 2 的地址
+                    one-mcp Proxy-&gt;&gt;MCP Server 2: 转发请求
+                    MCP Server 2--&gt;&gt;one-mcp Proxy: 返回执行结果
+                    one-mcp Proxy--&gt;&gt;AI Agent: 返回最终结果
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- mysql-mcp-server -->
+          <div id="mysql-mcp" class="mb-20">
+            <div class="project-card">
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6">
+                  <div class="flex items-center space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center">
+                      <i class="fas fa-database text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-3xl font-bold text-slate-900">mysql-mcp-server</h3>
+                      <p class="text-slate-600">基于 MCP 协议的 MySQL 工具服务</p>
+                    </div>
+                  </div>
+
+                  <div class="prose prose-lg max-w-none">
+                    <p class="text-slate-700 leading-relaxed">
+                      mysql-mcp-server 是一个基于模型上下文协议（Model-Context Protocol, MCP）的 MySQL 工具服务。它的主要功能是为 AI 代理提供与 MySQL 数据库进行交互的能力，包括执行 SQL 查询、获取数据库表结构、检测数据库连接状态等。该项目是基于
+                      <code>@modelcontextprotocol/sdk</code> 开发的，旨在为 AI 代理和自动化工具等场景提供一个标准化的数据库访问接口。
+                    </p>
+
+                    <div class="bg-emerald-50 p-6 rounded-xl my-6">
+                      <h4 class="font-semibold text-emerald-900 mb-3">技术优势</h4>
+                      <ul class="space-y-2 text-slate-700">
+                        <li>• <strong>安全性提升</strong>：数据库连接信息不暴露给 AI 代理，降低安全风险</li>
+                        <li>• <strong>可移植性增强</strong>：更换数据库只需修改配置，无需修改 AI 代理代码</li>
+                        <li>• <strong>开发效率提升</strong>：标准化的接口，简化 AI 应用的开发和维护</li>
+                        <li>• <strong>灵活配置</strong>：支持自定义连接参数、超时时间等配置选项</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-wrap gap-4">
+                    <span class="tech-badge">MySQL</span>
+                    <span class="tech-badge">MCP Protocol</span>
+                    <span class="tech-badge">Database Proxy</span>
+                    <span class="tech-badge">AI Integration</span>
+                  </div>
+                </div>
+
+                <div class="space-y-6">
+                  <img src="./vibe-coding/mysql-mcp-server.png" alt="MySQL数据库管理工具界面" class="w-full rounded-xl shadow-lg" size="medium" aspect="wide" query="mysql数据库管理工具界面" referrerpolicy="no-referrer"/>
+
+                  <div class="bg-slate-50 p-6 rounded-xl">
+                    <h4 class="font-semibold text-slate-900 mb-4">功能特性</h4>
+                    <div class="space-y-3 text-sm">
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-search text-blue-600"></i>
+                        <span class="text-slate-700">SQL 查询执行</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-table text-green-600"></i>
+                        <span class="text-slate-700">表结构获取</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-heartbeat text-purple-600"></i>
+                        <span class="text-slate-700">连接状态检测</span>
+                      </div>
+                      <div class="flex items-center space-x-3">
+                        <i class="fas fa-shield-alt text-red-600"></i>
+                        <span class="text-slate-700">安全访问控制</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- mysql-mcp-server Mermaid Diagram -->
+              <div class="mt-12">
+                <h4 class="text-2xl font-semibold text-slate-900 mb-6 text-center">交互流程图</h4>
+                <div class="mermaid-container">
+                  <div class="mermaid-controls">
+                    <button class="mermaid-control-btn zoom-in" title="放大">
+                      <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button class="mermaid-control-btn zoom-out" title="缩小">
+                      <i class="fas fa-search-minus"></i>
+                    </button>
+                    <button class="mermaid-control-btn reset-zoom" title="重置">
+                      <i class="fas fa-expand-arrows-alt"></i>
+                    </button>
+                    <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                      <i class="fas fa-expand"></i>
+                    </button>
+                  </div>
+                  <div class="mermaid">
+                    sequenceDiagram
+                    participant AI Agent
+                    participant mysql-mcp-server
+                    participant MySQL Database
+
+                    AI Agent-&gt;&gt;mysql-mcp-server: 发送 MCP 请求 (例如: 执行 SQL 查询)
+                    mysql-mcp-server-&gt;&gt;mysql-mcp-server: 解析 MCP 请求
+                    mysql-mcp-server-&gt;&gt;MySQL Database: 建立数据库连接
+                    mysql-mcp-server-&gt;&gt;MySQL Database: 执行 SQL 查询
+                    MySQL Database--&gt;&gt;mysql-mcp-server: 返回查询结果
+                    mysql-mcp-server-&gt;&gt;mysql-mcp-server: 将结果封装成 MCP 响应
+                    mysql-mcp-server--&gt;&gt;AI Agent: 返回 MCP 响应 (包含查询结果)
+
+                    AI Agent-&gt;&gt;mysql-mcp-server: 发送 MCP 请求 (例如: 获取表结构)
+                    mysql-mcp-server-&gt;&gt;mysql-mcp-server: 解析 MCP 请求
+                    mysql-mcp-server-&gt;&gt;MySQL Database: 查询 INFORMATION_SCHEMA
+                    MySQL Database--&gt;&gt;mysql-mcp-server: 返回表结构信息
+                    mysql-mcp-server-&gt;&gt;mysql-mcp-server: 将结果封装成 MCP 响应
+                    mysql-mcp-server--&gt;&gt;AI Agent: 返回 MCP 响应 (包含表结构信息)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conclusion -->
+      <section class="py-16 bg-gradient-to-br from-slate-900 to-blue-900 text-white">
+        <div class="container mx-auto px-8 text-center">
+          <h2 class="text-4xl font-bold mb-8 serif">AI 创新的未来展望</h2>
+          <div class="max-w-4xl mx-auto space-y-8">
+            <p class="text-xl leading-relaxed">
+              通过对这些精选 GitHub 项目的深度解析，我们可以看到 AI 应用创新正在多个维度上蓬勃发展。从智能代理与自动化工具，到 AI 赋能的内容创作，再到支撑这些应用的基础设施，每个项目都代表了 AI 技术在实际应用中的重要突破。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                <i class="fas fa-rocket text-3xl text-blue-400 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-3">技术突破</h3>
+                <p class="text-sm text-slate-300">
+                  通过多智能体系统、自然语言处理和计算机视觉等技术，AI 应用正变得越来越智能和人性化
+                </p>
+              </div>
+
+              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                <i class="fas fa-users text-3xl text-green-400 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-3">用户体验</h3>
+                <p class="text-sm text-slate-300">
+                  项目注重用户体验，通过直观的界面设计和自然语言交互，让 AI 技术变得更加易用
+                </p>
+              </div>
+
+              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                <i class="fas fa-infinity text-3xl text-purple-400 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-3">无限可能</h3>
+                <p class="text-sm text-slate-300">
+                  这些开源项目为开发者提供了强大的工具和框架，为 AI 应用的未来发展开启了无限可能
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#3b82f6',
+                primaryTextColor: '#1e293b',
+                primaryBorderColor: '#1e40af',
+                lineColor: '#64748b',
+                secondaryColor: '#e2e8f0',
+                tertiaryColor: '#f8fafc',
+                background: '#ffffff',
+                mainBkg: '#ffffff',
+                secondaryBkg: '#f8fafc',
+                tertiaryBkg: '#e2e8f0'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            sequence: {
+                useMaxWidth: true,
+                wrap: true
+            }
+        });
+
+        // Initialize Mermaid Controls for zoom and pan
+        function initializeMermaidControls() {
+            const containers = document.querySelectorAll('.mermaid-container');
+
+            containers.forEach(container => {
+            const mermaidElement = container.querySelector('.mermaid');
+            let scale = 1;
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+
+            // 触摸相关状态
+            let isTouch = false;
+            let touchStartTime = 0;
+            let initialDistance = 0;
+            let initialScale = 1;
+            let isPinching = false;
+
+            // Zoom controls
+            const zoomInBtn = container.querySelector('.zoom-in');
+            const zoomOutBtn = container.querySelector('.zoom-out');
+            const resetBtn = container.querySelector('.reset-zoom');
+            const fullscreenBtn = container.querySelector('.fullscreen');
+
+            function updateTransform() {
+                mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+
+                if (scale > 1) {
+                container.classList.add('zoomed');
+                } else {
+                container.classList.remove('zoomed');
+                }
+
+                mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
+            }
+
+            if (zoomInBtn) {
+                zoomInBtn.addEventListener('click', () => {
+                scale = Math.min(scale * 1.25, 4);
+                updateTransform();
+                });
+            }
+
+            if (zoomOutBtn) {
+                zoomOutBtn.addEventListener('click', () => {
+                scale = Math.max(scale / 1.25, 0.3);
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+                updateTransform();
+                });
+            }
+
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                scale = 1;
+                translateX = 0;
+                translateY = 0;
+                updateTransform();
+                });
+            }
+
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', () => {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+                });
+            }
+
+            // Mouse Events
+            mermaidElement.addEventListener('mousedown', (e) => {
+                if (isTouch) return; // 如果是触摸设备，忽略鼠标事件
+
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                mermaidElement.style.cursor = 'grabbing';
+                updateTransform();
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging && !isTouch) {
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseleave', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            // 获取两点之间的距离
+            function getTouchDistance(touch1, touch2) {
+                return Math.hypot(
+                touch2.clientX - touch1.clientX,
+                touch2.clientY - touch1.clientY
+                );
+            }
+
+            // Touch Events - 触摸事件处理
+            mermaidElement.addEventListener('touchstart', (e) => {
+                isTouch = true;
+                touchStartTime = Date.now();
+
+                if (e.touches.length === 1) {
+                // 单指拖动
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+
+                } else if (e.touches.length === 2) {
+                // 双指缩放
+                isPinching = true;
+                isDragging = false;
+
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                initialDistance = getTouchDistance(touch1, touch2);
+                initialScale = scale;
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 1 && isDragging && !isPinching) {
+                // 单指拖动
+                const touch = e.touches[0];
+                translateX = touch.clientX - startX;
+                translateY = touch.clientY - startY;
+                updateTransform();
+
+                } else if (e.touches.length === 2 && isPinching) {
+                // 双指缩放
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                const currentDistance = getTouchDistance(touch1, touch2);
+
+                if (initialDistance > 0) {
+                    const newScale = Math.min(Math.max(
+                    initialScale * (currentDistance / initialDistance),
+                    0.3
+                    ), 4);
+                    scale = newScale;
+                    updateTransform();
+                }
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchend', (e) => {
+                // 重置状态
+                if (e.touches.length === 0) {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                // 延迟重置isTouch，避免鼠标事件立即触发
+                setTimeout(() => {
+                    isTouch = false;
+                }, 100);
+                } else if (e.touches.length === 1 && isPinching) {
+                // 从双指变为单指，切换为拖动模式
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+                }
+
+                updateTransform();
+            });
+
+            mermaidElement.addEventListener('touchcancel', (e) => {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                setTimeout(() => {
+                isTouch = false;
+                }, 100);
+
+                updateTransform();
+            });
+
+            // Enhanced wheel zoom with better center point handling
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const rect = container.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                const newScale = Math.min(Math.max(scale * delta, 0.3), 4);
+
+                // Adjust translation to zoom towards center
+                if (newScale !== scale) {
+                const scaleDiff = newScale / scale;
+                translateX = translateX * scaleDiff;
+                translateY = translateY * scaleDiff;
+                scale = newScale;
+
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+
+                updateTransform();
+                }
+            });
+
+            // Initialize display
+            updateTransform();
+            });
+        }
+
+        // Initialize mermaid controls after mermaid renders
+        setTimeout(initializeMermaidControls, 1000);
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const toc = document.getElementById('toc');
+
+        if (mobileMenuButton && toc) {
+            mobileMenuButton.addEventListener('click', () => {
+                toc.classList.toggle('open');
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    if (toc.classList.contains('open')) {
+                        toc.classList.remove('open');
+                    }
+                }
+            });
+        });
+
+        // Highlight active section in TOC
+        const observerOptions = {
+            rootMargin: '-20% 0px -35% 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Remove active class from all TOC links
+                    document.querySelectorAll('#toc a').forEach(link => {
+                        link.classList.remove('bg-blue-100', 'text-blue-700');
+                    });
+                    
+                    // Add active class to current section link
+                    const activeLink = document.querySelector(`#toc a[href="#${entry.target.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('bg-blue-100', 'text-blue-700');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add loading animation for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.3s ease';
+        });
+    </script>
+  
+
+</body></html>

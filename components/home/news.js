@@ -18,7 +18,7 @@ export default function News() {
 						<div className='flex flex-col md:flex-row gap-2'>
 							<a
 								title='odoo lastest updates'
-								className='btn btn-sm md:btn-md btn-base rounded-full'
+								className='btn btn-sm md:btn-md btn-base rounded-full flex items-center justify-center gap-1'
 								href='/news.html'
 								target="_blank"
 								rel="noopener noreferrer" 
