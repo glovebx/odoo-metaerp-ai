@@ -1,7 +1,7 @@
 import { locales } from './lib/i18n';
 import { NextRequest } from 'next/server';
 
-export function middleware(request) {
+export function proxy(request) {
 	const { pathname } = request.nextUrl;
 
 	const isLocalizedPath = locales.some((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
