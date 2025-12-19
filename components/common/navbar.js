@@ -28,7 +28,7 @@ export default function Navbar() {
 	}, [pathname, langName]);
 
 	return (
-		<header className='w-full z-50 bg-base-100 p-5 pb-0 max-w-[1280px] mx-auto md:mb-5 flex justify-between items-center'>
+		<header className='w-full z-50 bg-base-100 p-5 pb-0 max-w-7xl mx-auto md:mb-5 flex justify-between items-center'>
 			<a
 				aria-label='metaerp odoo client'
 				className='flex items-center w-1/2 md:w-1/5'
@@ -59,7 +59,7 @@ export default function Navbar() {
 								href={link.url.substr(0, 4) !== 'http' ? `/${langName}${link.url}` : link.url}
 							>
 								{link.name}
-								<div className='absolute left-[50%] group-hover:left-0 w-0 group-hover:w-full h-[3px] transition-all duration-300 bg-base-content/90'></div>
+								<div className='absolute left-[50%] group-hover:left-0 w-0 group-hover:w-full h-0.75 transition-all duration-300 bg-base-content/90'></div>
 							</a>
 						</li>
 					);
@@ -82,7 +82,7 @@ export default function Navbar() {
 					<summary className='btn btn-ghost p-0'>
 						<MdMenu size={18} />
 					</summary>
-					<ul className='menu dropdown-content z-[100] p-2 shadow bg-base-100 opacity-100 rounded-box w-52'>
+					<ul className='menu dropdown-content z-100 p-2 shadow bg-base-100 opacity-100 rounded-box w-52'>
 						{linkList.map((link, index) => {
 							return (
 								<li key={index}>

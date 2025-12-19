@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities; */
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, cupcake, dracula;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -21,6 +23,7 @@
 /* 如果不支持 background-clip，则使用 -webkit 前缀 */
 @supports not (background-clip: text) {
 	.bg-clip-text {
+    background-clip: text;
 		-webkit-background-clip: text;
 	}
   }

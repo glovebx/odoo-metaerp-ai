@@ -58,7 +58,7 @@ export default function Hero({ locale, CTALocale }) {
 						<div className='flex flex-col md:flex-row gap-2'>
 							<a
 								title='get apk'
-								className='btn btn-sm md:btn-md btn-base border-none hover:ring-1 p-4 ring-base-content text-base-100 hover:text-base-content bg-base-content hover:bg-base-100 rounded-full flex items-center justify-center gap-1'
+								className='btn btn-sm md:btn-md btn-base border-none hover:ring-1 ring-base-content text-base-100 hover:text-base-content bg-base-content hover:bg-base-100 rounded-full'
 								href='https://github.com/glovebx/moco-odoo-client'
 							>
 								<SiGithub />
@@ -66,7 +66,7 @@ export default function Hero({ locale, CTALocale }) {
 							</a>
 							<a
 								title='get source code'
-								className='btn btn-sm md:btn-md btn-base border-none hover:ring-1 p-4 ring-base-content text-base-100 hover:text-base-content bg-base-content hover:bg-base-100 rounded-full flex items-center justify-center gap-1'
+								className='btn btn-sm md:btn-md btn-base rounded-full'
 								href='https://github.com/glovebx/moco-odoo-client'
 							>
 								<IoDocumentText /> {CTALocale.btn2}

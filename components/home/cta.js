@@ -16,7 +16,7 @@ export default function Cta({ locale, CTALocale }) {
 				}}
 			>
 				<div className='relative z-10 flex flex-col gap-5 items-start md:items-center mb-10 mx-auto'>
-					<h2 className='font-bold  text-5xl md:text-7xl bg-gradient-to-r from-base-content from-50% to-[#9c9c9c] md:text-center bg-clip-text text-transparent !leading-[1.25em]'>
+					<h2 className='font-bold  text-5xl md:text-7xl bg-linear-to-r from-base-content from-50% to-[#9c9c9c] md:text-center bg-clip-text text-transparent leading-[1.25em]!'>
 						{locale.h2}
 					</h2>
 

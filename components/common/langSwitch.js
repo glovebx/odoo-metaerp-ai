@@ -27,17 +27,25 @@ export default function LangSwitch() {
 	};
 
 	return (
-		<div className='dropdown dropdown-end dropdown-hover z-[100]'>
+		<div className='dropdown dropdown-end dropdown-hover z-100'>
 			<div
 				tabIndex={0}
 				role='button'
-				className='flex items-center justify-center md:bg-base-100 md:rounded-full w-15 md:w-[100px] h-5 text-sm md:h-8 md:shadow-sm md:hover:shadow-md transition-all'
+				className='flex items-center justify-center cursor-pointer md:bg-base-100 md:rounded-full w-5 md:w-20 h-5 text-sm md:h-8 md:shadow-sm md:hover:shadow-md transition-all'
 			>
-				{localeNames[langName]}
+				{/* 国旗部分 - 始终显示 */}
+				<span className="flag">
+					{localeNames[langName].split(' ')[0]}
+				</span>
+				
+				{/* 国名部分 - 仅在中等屏幕及以上显示 */}
+				<span className="hidden md:inline ml-1">
+					{localeNames[langName].split(' ').slice(1).join(' ')}
+				</span>
 			</div>
 			<ul
 				tabIndex={0}
-				className='dropdown-content menu bg-base-100 rounded-box z-[1] w-40 p-2 shadow'
+				className='dropdown-content menu bg-base-100 rounded-box z-1 w-40 p-2 shadow'
 			>
 				{Object.keys(localeNames).map((key) => {
 					const name = localeNames[key];
