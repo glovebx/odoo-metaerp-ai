@@ -43,7 +43,15 @@
         </svg>
     </div>
   
-  <h2 id="privacyName">Odoo客户端 隐私政策</h2>
+  <h2 id="privacyName">
+  <a href="terms.html" class="back-button" title="服务条款">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+  </a>
+    Odoo客户端 隐私政策
+  </h2>
   <p id="update-time">
     <span class="font-secondary">更新日期：2026年01月01日</span>
   </p>
@@ -209,6 +217,31 @@
     background-color: #ffffff;
   }
 
+    /* 返回按钮样式 */
+  .back-button {
+    position: absolute;
+    left: 0; /* 确保左侧与正文左对齐 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+  }
+
+  .back-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #0a59f7;
+  }
+
+  .back-button svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
   /* 基础列表样式 */
   ul {
     padding: 0;
@@ -239,10 +272,15 @@
     display: none;
   }
   #privacyName {
+    position: relative;
     margin: 2rem 0 0.5rem;
     text-align: center;
     font-size: 18px;
     font-weight: bold;
+    min-height: 3.5rem; /* 确保高度足以容纳按钮 */
+    display: flex;
+    align-items: center;
+    justify-content: center;    
   }
 
   #update-time {
@@ -298,6 +336,10 @@
     font-weight: bold;
   }
 
+  td > a {
+    line-break: anywhere;
+  }
+
   /* 注意事项方框 */
   .highlight-box {
     background-color: rgba(10, 89, 247, 0.05);
@@ -327,6 +369,15 @@
 
     * {
       color: rgba(255, 255, 255, 0.9);
+    }
+
+    .back-button {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .back-button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #5291ff;
     }
 
     #light {
@@ -361,6 +412,17 @@
         border-top-color: rgba(255, 255, 255, 0.1);
     }
   }
+
+  /* 移动端适配：如果屏幕太窄，调整内边距防止遮挡标题 */
+  @media (max-width: 480px) {
+    #privacyName {
+        font-size: 16px;
+    }
+    .back-button {
+      top: 1.5rem;
+      left: 1.5rem;
+    }
+  }  
 </style>
 
 </html>

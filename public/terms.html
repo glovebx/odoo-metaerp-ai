@@ -46,7 +46,14 @@
       </g>
     </svg>
   </div>
-  <h2 id="privacyName">Odoo客户端 服务条款</h2>
+  <h2 id="privacyName">Odoo客户端 服务条款
+    <a href="privacy.html" class="nav-btn-right" title="隐私政策">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>    
+  </h2>
   <p id="update-time">
     <span class="font-secondary">更新日期：2026年01月01日</span>
   </p>
@@ -183,11 +190,42 @@
   }
 
   #privacyName {
+    position: relative;
     margin: 2rem 0 0.5rem;
     text-align: center;
     font-size: 18px;
+    font-weight: bold;
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 保持标题文字水平居中 */
+  }
+  /* 右侧导航按钮样式 */
+  .nav-btn-right {
+      position: absolute;
+      right: 0; /* 确保右侧与正文右侧对齐 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 50%;
+      color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
+      text-decoration: none;
   }
 
+  .nav-btn-right svg {
+      width: 1.8rem;
+      height: 1.8rem;
+  }
+
+  .nav-btn-right:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      color: #0a59f7;
+      transform: translateX(2px); /* 悬停时微向右移，增强指向感 */
+  }
   #update-time {
     text-align: center;
 
@@ -236,7 +274,14 @@
     * {
       color: rgba(255, 255, 255, 0.9);
     }
-
+    .nav-btn-right {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .nav-btn-right:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #5291ff;
+    }
     .font-secondary {
       color: rgba(255, 255, 255, 0.6);
     }
@@ -249,5 +294,15 @@
         border-top-color: rgba(255, 255, 255, 0.1);
     }
   }
+  /* 移动端适配 */
+  @media (max-width: 480px) {
+      #privacyName {
+          font-size: 16px;
+      }
+    .nav-btn-right {
+      top: 1.5rem;
+      right: 1.5rem;
+    }      
+  }  
 </style>
 <style id="style"></style>
