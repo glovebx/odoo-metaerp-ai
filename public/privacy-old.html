@@ -1,334 +1,201 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-  <meta charset="UTF-8" />
-  <title>隐私政策</title>
-  <meta name="viewport" content="initial-scale=1.0,width=device-width" />
-  <link rel="icon" href="data:image/ico;base64,aWNv" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odoo客户端 隐私政策</title>
+    <style>
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f4f7f9;
+            margin: 0;
+            /* padding: 20px; */
+        }
+        .paper {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 12px 48px;
+            /* box-shadow: 0 2px 10px rgba(0,0,0,0.1); */
+            /* border-top: 6px solid #007aff; */
+        }
+        h1 { font-size: 24px; text-align: center; color: #111; margin-bottom: 5px; }
+        .subtitle { text-align: center; font-size: 14px; color: #666; margin-bottom: 30px; }
+        h2 { font-size: 18px; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-top: 30px; color: #007aff; }
+        h3 { font-size: 16px; margin-top: 20px; color: #444; }
+        p, li { font-size: 14px; text-align: justify; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #e2e8f0; padding: 12px; font-size: 13px; vertical-align: top; }
+        th { background-color: #f8fafc; font-weight: 600; text-align: left; }
+        .important { color: #d9534f; font-weight: bold; }
+        .footer-note { font-size: 12px; color: #999; margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; text-align: center; }
+        .highlight-box {
+            background-color: #fff9db;
+            padding: 15px;
+            border-left: 4px solid #fcc419;
+            margin: 20px 0;
+            font-size: 14px;
+        }        
+    </style>
 </head>
-<script>
-  document.documentElement.style.fontSize = 8 + 'px';
-</script>
-
 <body>
-  <div id="icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="96.000000" height="96.000000" viewBox="0 0 96 96" fill="none">
-      <defs>
-        <clipPath id="clip40_7009">
-          <rect width="96.000000" height="96.000000" fill="white" fill-opacity="0" />
-        </clipPath>
-      </defs>
-      <g clip-path="url(#clip40_7009)">
-        <path class="icon-emphasize" d="M74.58 85L23.08 85C21.97 85 21.03 84.6 20.25 83.82C19.47 83.04 19.08 82.1 19.08 81L19.08 15C19.08 13.89 19.47 12.95 20.25 12.17C21.03 11.39 21.97 11 23.08 11L70.58 11C71.68 11 72.62 11.39 73.4 12.17C74.18 12.95 74.58 13.89 74.58 15L74.58 70.5" stroke="currentColor" stroke-width="6.000000" />
-        <path class="icon-emphasize" d="M74 74L74.25 74C75.35 74 76.29 74.39 77.07 75.17C77.85 75.95 78.25 76.89 78.25 78C78.25 79.1 77.85 80.04 77.07 80.82C76.29 81.6 75.35 82 74.25 82L37.41 82C38.56 79.33 38.56 76.66 37.41 74L74 74ZM74 68L28.43 68C27.62 67.98 26.9 68.24 26.29 68.78C25.68 69.32 25.33 70 25.26 70.81C25.2 71.68 25.47 72.42 26.07 73.05C26.66 73.68 27.39 74 28.26 74L28.68 74C29.85 74.06 30.77 74.56 31.47 75.5C32.46 76.83 32.59 78.24 31.85 79.73C31.11 81.22 29.91 81.98 28.25 82L27.16 82L27.16 84.84C27.17 85.72 27.5 86.47 28.13 87.08C28.76 87.7 29.52 88 30.41 88L74.25 88C74.33 88 74.41 88 74.5 88C75.82 88 77.1 87.74 78.32 87.23C79.55 86.73 80.63 86 81.57 85.07C82.5 84.13 83.23 83.05 83.73 81.82C84.24 80.6 84.5 79.32 84.5 78C84.5 76.67 84.24 75.39 83.73 74.17C83.23 72.94 82.5 71.86 81.57 70.92C80.63 69.99 79.55 69.26 78.32 68.76C77.1 68.25 75.82 68 74.5 68C74.41 67.99 74.33 67.99 74.25 68L74 68Z" fill="currentColor" />
-      </g>
-    </svg>
-  </div>
-  
-  <h2 id="privacyName">Odoo客户端 隐私政策</h2>
-  <p id="update-time">
-    <span class="font-secondary">版本生效日期：2026年01月01日</span>
-  </p>
 
-  <p>Odoo客户端（以下简称“本应用”）非常重视用户（以下简称“您”）的隐私。本政策适用于应用市场版本的 Odoo客户端 产品。我们希望通过本政策向您详细说明我们在您使用本应用时如何收集、使用、存储这些信息，以及我们为您提供的访问、更新、删除和保护这些信息的方式。</p>
+<div class="paper">
+    <h1>Odoo客户端 隐私政策</h1>
+    <p class="subtitle">版本生效日期：2026/01/01</p>
 
-  <h5>一、 我们如何收集和使用您的个人信息</h5>
-  <p>本应用严格遵守“合法、正当、必要”原则，仅收集实现产品功能所必需的信息。</p>
-  
-  <p><b>1. 业务功能收集信息概览</b></p>
-  <table>
-    <thead>
-      <tr>
-        <th style="width: 25%;">分类</th>
-        <th style="width: 25%;">具体项目</th>
-        <th>使用目的及场景</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>日志与统计信息</td>
-        <td>应用启动记录</td>
-        <td>通过匿名化统计分析产品的使用情况。</td>
-      </tr>
-      <tr>
-        <td>存储信息</td>
-        <td>本地设置参数、历史数据</td>
-        <td>仅存储在用户本地设备中，方便自动登录及快速载入资源。</td>
-      </tr>
-    </tbody>
-  </table>
+    <p>Odoo客户端（以下简称“本应用”）非常重视用户（以下简称“您”）的隐私。本政策适用于应用市场版本的 Odoo客户端 产品。我们希望通过本政策向您详细说明我们在您使用本应用时如何收集、使用、存储这些信息，以及我们为您提供的访问、更新、删除和保护这些信息的方式。</p>
 
-  <h5>二、 我们如何使用 Cookie 和同类技术</h5>
-  <p>本应用作为工具类产品，<b>不使用</b> Cookie 或类似技术追踪您的个人身份。所有计算配置和偏好设置均直接存储在应用私有目录下。</p>
-
-  <h5>三、 设备权限调用说明</h5>
-  <p>在提供服务的过程中，我们可能会申请以下系统权限。我们会事先征得您的同意，并在授权范围内使用。</p>
-  
-  <table>
-    <thead>
-      <tr>
-        <th style="width: 30%;">权限分类</th>
-        <th>使用场景与业务目的</th>
-        <th style="width: 25%;">涉及业务</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><b>通讯录权限</b></td>
-        <td>1. 读取并保存联系人数据至本地。<br>2. 实现电话及邮件数据的双向同步。</td>
-        <td>ERP CRM管理</td>
-      </tr>
-      <tr>
-        <td><b>悬浮窗权限</b></td>
-        <td>允许扫码窗口以浮动窗口形式显示，确保跨界面快速调用。</td>
-        <td>ERP 库存扫码</td>
-      </tr>
-      <tr>
-        <td><b>相机权限</b></td>
-        <td>允许拍摄现场照片或录制视频，用于向 ERP 系统上传单据证明。</td>
-        <td>ERP 数据采集</td>
-      </tr>
-      <tr>
-        <td><b>存储权限</b></td>
-        <td>读取存储卡上的报告用于上传；管理本地已下载附件。</td>
-        <td>ERP 附件管理</td>
-      </tr>
-      <tr>
-        <td><b>定位权限</b></td>
-        <td>基于网络源或 GPS 获取位置。是开启蓝牙扫描的前提条件。</td>
-        <td>蓝牙打印</td>
-      </tr>
-      <tr>
-        <td><b>蓝牙权限</b></td>
-        <td>发现、配对并连接远程蓝牙打印设备。</td>
-        <td>蓝牙打印连接</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p class="highlight-box">
-    <b>注意：</b>上述权限均需在您使用特定功能时通过系统弹窗授权。您可以随时在系统“权限管理”中撤回授权，撤回后将导致对应功能无法运行。
-  </p>
-
-  <p><b>信息的安全性：</b>我们承诺所有通过上述权限获取的数据，仅用于实现业务功能，并采用加密传输技术（如 HTTPS）同步至您的 ERP 服务器，不会向无关第三方披露。</p>
-
-  <h5>四、 接入的第三方 SDK 申明</h5>
-  <p>为保障稳定运行及实现相关功能，我们接入了以下第三方服务：</p>
-  
-  <table>
-    <thead>
-      <tr>
-        <th>SDK 名称</th>
-        <th>服务商</th>
-        <th>收集数据</th>
-        <th>链接</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>HMS Core</td>
-        <td>华为技术</td>
-        <td>设备标识符/网络状态</td>
-        <td><a href="https://consumer.huawei.com/minisite/cloudservice/hms-core/privacy-statement-new.htm?code=zh&language=zh-CN">查看</a></td>
-      </tr>
-      <tr>
-        <td>华为扫码</td>
-        <td>华为技术</td>
-        <td>传感器/硬件信息</td>
-        <td><a href="https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/sdk-data-security-0000001050043971">查看</a></td>
-      </tr>
-      <tr>
-        <td>友盟 + SDK</td>
-        <td>友盟同欣</td>
-        <td>设备信息/地理位置</td>
-        <td><a href="https://www.umeng.com/page/policy">查看</a></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h5>五、 您的权利与信息管理</h5>
-  <p>根据相关法律要求，您对您的个人信息拥有以下控制权：</p>
-  <ul>
-    <li>• <b>撤回同意：</b>在手机系统设置中随时关闭已授予的权限。</li>
-    <li>• <b>数据删除：</b>清除应用缓存或卸载应用即可删除所有本地相关数据。</li>
-    <li>• <b>注销：</b>本应用无需注册帐号，卸载即视为服务终止及数据销毁。</li>
-  </ul>
-
-  <h5>六、 未成年人保护</h5>
-  <p>本应用主要面向成年人使用。如果您是未成年人，<b>请在监护人的陪同下阅读本政策，并在征得其同意后再使用。</b>我们不会主动收集未成年人的个人敏感信息。</p>
-
-  <h5>七、 政策变更与联系方式</h5>
-  <p>我们可能会适时修订本政策。修订后的政策一旦公布即代替原政策。如有疑问请联系：</p>
-  <p><b>联系人：</b> 顾先生</p>
-  <p><b>联系邮箱：</b> <a href="mailto:1069010@qq.com">1069010@qq.com</a></p>
-  <p><b>GitHub 项目：</b> <a href="https://github.com/glovebx/moco-odoo-client">Odoo客户端</a></p>
-
-  <div class="footer-note">
-    <p class="font-secondary">感谢您对 Odoo客户端 的信任。我们将竭力保护您的隐私安全。</p>
-    <p class="font-secondary">© 2021 - 2026. All Rights Reserved.</p>
-  </div>
-</body>
-
-<style type="text/css">
-  * {
-    margin: 0;
-    font-size: 16px;
-    color: rgba(0, 0, 0, 0.9);
-    box-sizing: border-box;
-  }
-
-  body {
-    max-width: 860px;
-    margin: auto;
-    padding: 2rem 2rem 5rem 2rem;
-    line-height: 1.6;
-    background-color: #ffffff;
-  }
-
-  /* 基础列表样式 */
-  ul {
-    padding: 0;
-    list-style: none;
-    margin: 1rem 0;
-  }
-  
-  li {
-      margin-bottom: 0.5rem;
-  }
-
-  a {
-    color: #0a59f7;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  #icon {
-    font-size: 0;
-    text-align: center;
-  }
-
-  #icon svg {
-    width: 4rem;
-    height: 4rem;
-  }
-
-  #privacyName {
-    margin: 2rem 0 0.5rem;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-  }
-
-  #update-time {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  #update-time span {
-    font-size: 14px;
-  }
-
-  .font-secondary {
-    color: rgba(0, 0, 0, 0.6);
-  }
-
-  .icon-emphasize {
-    color: rgba(10, 89, 247, 1);
-    stroke: currentColor;
-  }
-
-  h5 {
-    word-break: break-all;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    font-size: 16px;
-    font-weight: bold;
-  }
-
-  p {
-    word-break: break-all;
-    margin-bottom: 1rem;
-    text-align: justify;
-  }
-
-  /* 表格样式适配 */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5rem 0;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  th, td {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    font-size: 14px;
-    text-align: left;
-    vertical-align: top;
-  }
-
-  th {
-    background-color: rgba(0, 0, 0, 0.03);
-    font-weight: bold;
-  }
-
-  /* 注意事项方框 */
-  .highlight-box {
-    background-color: rgba(10, 89, 247, 0.05);
-    padding: 1.5rem;
-    border-left: 4px solid #0a59f7;
-    margin: 1.5rem 0;
-  }
-
-  .footer-note {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    text-align: center;
-  }
-  
-  .footer-note p {
-      text-align: center;
-      font-size: 12px;
-      margin-bottom: 0.5rem;
-  }
-
-  /* 暗色模式适配 */
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #000000;
-    }
-
-    * {
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    .font-secondary {
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    .icon-emphasize {
-      color: rgba(82, 145, 255, 1);
-    }
-
-    table, th, td {
-      border-color: rgba(255, 255, 255, 0.15);
-    }
-
-    th {
-      background-color: rgba(255, 255, 255, 0.05);
-    }
-
-    .highlight-box {
-      background-color: rgba(82, 145, 255, 0.1);
-      border-left-color: #5291ff;
-    }
+    <h2>一、 我们如何收集和使用您的个人信息</h2>
+    <p>本应用严格遵守“合法、正当、必要”原则，仅收集实现产品功能所必需的信息。</p>
     
-    .footer-note {
-        border-top-color: rgba(255, 255, 255, 0.1);
-    }
-  }
-</style>
+    <h3>1. 业务功能收集信息概览</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>分类</th>
+                <th>收集的具体项目</th>
+                <th>使用目的及场景</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td><strong>设备基础信息</strong></td>
+                <td>设备型号、操作系统版本、唯一设备标识符（如 OAID）、网络类型、系统语言、国家码</td>
+                <td>用于识别设备环境以进行必要的机型适配，确保计算引擎在不同系统版本下的兼容性与稳定性。</td>
+            </tr> -->
+            <tr>
+                <td><strong>日志与统计信息</strong></td>
+                <td>应用启动记录</td>
+                <td>通过匿名化统计分析产品的使用情况。</td>
+            </tr>
+            <tr>
+                <td><strong>存储信息</strong></td>
+                <td>本地设置参数、历史数据</td>
+                <td>仅存储在用户本地设备中，方便自动登录及快速载入资源。</td>
+            </tr>
+        </tbody>
+    </table>
 
+    <h2>二、 我们如何使用 Cookie 和同类技术</h2>
+    <p>本应用作为工具类产品，<strong>不使用</strong> Cookie 或类似技术追踪您的个人身份。所有计算配置和偏好设置均直接存储在应用私有目录下。</p>
+
+    <h2>三、 设备权限调用说明</h2>
+    <p>在提供服务的过程中，我们可能会申请以下系统权限。我们会事先征得您的同意，并在授权范围内使用。</p>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 25%;">权限分类/权限项</th>
+                <th style="width: 45%;">详细使用场景与业务目的</th>
+                <th style="width: 30%;">涉及业务模块</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>通讯录权限</strong><br>(读取/新建/修改/删除)</td>
+                <td>1. 读取并保存联系人数据至本地，或将本地联系人同步至系统。<br>2. 新建、修改或删除电话及邮件数据，实现双向数据同步。</td>
+                <td>ERP CRM管理</td>
+            </tr>
+            <tr>
+                <td><strong>悬浮窗权限</strong><br>(显示在其他应用上面)</td>
+                <td>允许条形码、二维码扫码窗口以浮动窗口形式显示，确保用户在不同操作界面间快速调用扫描功能。</td>
+                <td>ERP 库存扫码</td>
+            </tr>
+            <tr>
+                <td><strong>相机权限</strong><br>(拍摄照片和视频)</td>
+                <td>允许应用拍摄现场照片或录制视频，用于向 ERP 系统上传各类实地调研报告、单据证明。</td>
+                <td>ERP 数据采集</td>
+            </tr>
+            <tr>
+                <td><strong>存储权限</strong><br>(读取/修改/删除)</td>
+                <td>1. 读取存储卡上的图片、报告等文件用于系统上传。<br>2. 修改或删除已下载到本地的图片、PDF 文档等各类附件以释放存储空间。</td>
+                <td>ERP 附件管理</td>
+            </tr>
+            <tr>
+                <td><strong>定位权限</strong><br>(GPS/基站/Wi-Fi定位)</td>
+                <td>基于网络源或 GPS 获取位置信息。该权限是开启蓝牙扫描与连接的前提条件（部分系统版本要求）。可能增加耗电。</td>
+                <td>设备连接 / 蓝牙打印</td>
+            </tr>
+            <tr>
+                <td><strong>蓝牙权限</strong><br>(扫描/配对/连接/配置)</td>
+                <td>1. 查看蓝牙配置、建立及接受与配对设备的连接。<br>2. 发现远程设备、进行配对并配置本地蓝牙设置，确保能成功连接到外部硬件。</td>
+                <td>蓝牙打印机连接</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="highlight-box">
+        <strong>注意：</strong> 上述权限均需在您使用特定业务功能时通过系统弹窗征得您的明确授权。您可以随时在“手机设置-权限管理”中撤回相关授权，撤回后将导致对应的业务模块（如无法使用蓝牙打印、无法上传报告等）无法正常运行。
+    </div>
+
+    <h2>信息的安全性</h2>
+    <p>我们承诺所有通过上述权限获取的数据，仅用于实现您所操作的业务功能，并采用加密传输技术（如 HTTPS）将数据同步至您的 ERP 服务器，不会向任何无关第三方披露。</p>
+
+    <h2>四、 接入的第三方 SDK 申明</h2>
+    <p>为保障本应用的稳定运行及实现相关功能，我们接入了第三方服务。以下为完整列表：</p>
+    <table>
+        <thead>
+            <tr>
+                <th>SDK 名称</th>
+                <th>服务商</th>
+                <th>收集数据</th>
+                <th>隐私政策链接</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>HMS Core SDK</td>
+                <td>华为软件技术有限公司</td>
+                <td>设备标识符/应用基本信息/网络状态</td>
+                <td><a href="https://consumer.huawei.com/minisite/cloudservice/hms-core/privacy-statement-new.htm?code=zh&language=zh-CN">查看</a></td>
+            </tr>
+            <tr>
+                <td>华为统一扫码 SDK</td>
+                <td>华为软件技术有限公司</td>
+                <td>传感器信息/网络信息/应用内设备标识符/应用基本信息/设备的硬件信息/运营商信息/系统信息/WLAN信息</td>
+                <td><a href="https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/sdk-data-security-0000001050043971">查看</a></td>
+            </tr>
+            <tr>
+                <td>华为推送 SDK</td>
+                <td>华为软件技术有限公司</td>
+                <td>应用基本信息/网络信息/设备的硬件信息/系统基本信息和系统设置信息/消息内容</td>
+                <td><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/sdk-data-security-0000001050042177">查看</a></td>
+            </tr>
+            <tr>
+                <td>友盟 + SDK</td>
+                <td>友盟同欣(北京)科技有限公司</td>
+                <td>设备信息（IMEI/Mac/android ID/IDFA/OPENUDID/GUID/SIM卡IMSI/地理位置信息）</td>
+                <td><a href="https://www.umeng.com/page/policy">查看</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>五、 您的权利与信息管理</h2>
+    <p>根据相关法律要求，您对您的个人信息拥有以下控制权：</p>
+    <ul>
+        <li><strong>撤回同意：</strong> 您可以在手机系统设置中随时关闭已授予的权限（如存储、网络）。</li>
+        <li><strong>数据删除：</strong> 本应用绝大部分数据存储在您的手机本地，清除应用缓存或卸载应用即可删除所有相关数据。</li>
+        <li><strong>注销：</strong> 本应用无需注册帐号，卸载即视为服务终止及数据销毁。</li>
+    </ul>
+
+    <h2>六、 未成年人保护</h2>
+    <p>本应用主要面向成年人使用。如果您是未成年人，<span class="important">请在父母或监护人的陪同下阅读本政策，并在征得其同意后再使用本应用。</span>我们不会主动收集未成年人的个人敏感信息。</p>
+
+    <h2>七、 政策变更与联系方式</h2>
+    <p>我们可能会适时修订本政策。修订后的政策一旦公布即代替原政策。若您对本政策有任何疑问，请联系：</p>
+    <p>
+        <strong>联系人：</strong> 顾先生 <br>
+        <strong>联系邮箱：</strong> <a href="mailto:1069010@qq.com">1069010@qq.com</a><br>
+        <strong>GitHub 项目页：</strong> <a href="https://github.com/glovebx/moco-odoo-client">Odoo客户端</a>
+    </p>
+
+    <div class="footer-note">
+        <p>感谢您对 Odoo客户端 的信任。我们将竭力保护您的隐私安全。</p>
+        <p>© 2021 - 2026. All Rights Reserved.</p>
+    </div>
+</div>
+
+</body>
 </html>
