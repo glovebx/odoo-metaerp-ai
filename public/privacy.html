@@ -53,7 +53,7 @@
     Odoo客户端 隐私政策
   </h2>
   <p id="update-time">
-    <span class="font-secondary">更新日期：2026年01月01日</span>
+    <span class="font-secondary">更新日期：2026年02月01日</span>
   </p>
 
   <p>Odoo客户端（以下简称“本应用”）非常重视用户（以下简称“您”）的隐私。本政策适用于应用市场版本的 Odoo客户端 产品。我们希望通过本政策向您详细说明我们在您使用本应用时如何收集、使用、存储这些信息，以及我们为您提供的访问、更新、删除和保护这些信息的方式。</p>
@@ -99,11 +99,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <!-- <tr>
         <td><b>通讯录权限</b></td>
         <td>1. 读取并保存联系人数据至本地。<br>2. 实现电话及邮件数据的双向同步。</td>
         <td>ERP CRM管理</td>
-      </tr>
+      </tr> -->
       <tr>
         <td><b>悬浮窗权限</b></td>
         <td>允许扫码窗口以浮动窗口形式显示，确保跨界面快速调用。</td>
@@ -147,6 +147,9 @@
         <th>SDK 名称</th>
         <th>服务商</th>
         <th>收集数据</th>
+        <th>使用目的</th>
+        <th>使用场景</th>        
+        <th>收集方式</th>
         <th>链接</th>
       </tr>
     </thead>
@@ -155,24 +158,36 @@
         <td>HMS Core</td>
         <td>华为软件技术有限公司</td>
         <td>网络状态/设备信息</td>
+        <td>提供华为HMS服务的基础功能，用户使用推送、扫码功能时会关联启动</td>
+        <td>应用启动时；推送、扫码功能启动时</td>
+        <td>SDK本机采集</td>
         <td><a href="https://consumer.huawei.com/minisite/cloudservice/hms-core/privacy-statement-new.htm?code=zh&language=zh-CN">https://consumer.huawei.com/minisite/cloudservice/hms-core/privacy-statement-new.htm?code=zh&language=zh-CN</a></td>
       </tr>
       <tr>
         <td>华为统一扫码 SDK</td>
         <td>华为软件技术有限公司</td>
-        <td>传感器/设备信息</td>
+        <td>文字信息、图片、传感器信息（加速度传感器、光照传感器）、网络信息、应用内设备标识符、应用基本信息、设备的硬件信息、运营商信息（运营商的名称）、系统信息（系统设置、系统属性、设备型号、操作系统）、Wi-Fi信息（Wi-Fi状态）、有关您使用本应用的信息</td>
+        <td>提供码生成或扫码等能力</td>
+        <td>用户扫码时</td>
+        <td>SDK本机采集</td>
         <td><a href="https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/sdk-data-security-0000001050043971">https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/sdk-data-security-0000001050043971</a></td>
       </tr>
       <tr>
         <td>华为推送 SDK</td>
         <td>华为软件技术有限公司</td>
-        <td>消息内容/应用基本信息/设备信息</td>
+        <td>应用基本信息、应用内设备标识符（AAID和Push Token）、设备的硬件信息（设备型号）、系统基本信息和系统设置信息（系统类型、系统版本）、消息内容</td>
+        <td>提供消息推送服务，统计华为推送SDK接口调用成功率</td>
+        <td>向用户推送通知提醒时</td>
+        <td>SDK本机采集</td>
         <td><a href="https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/sdk-data-security-0000001050042177">https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/sdk-data-security-0000001050042177</a></td>
       </tr>
       <tr>
         <td>友盟 + SDK</td>
         <td>友盟同欣(北京)科技有限公司</td>
-        <td>地理位置/设备信息</td>
+        <td>设备型号、系统版本、网络信息、ANDROID ID</td>
+        <td>移动应用基础统计</td>
+        <td>应用启动时</td>
+        <td>SDK本机采集</td>
         <td><a href="https://www.umeng.com/page/policy">https://www.umeng.com/page/policy</a></td>
       </tr>
     </tbody>
