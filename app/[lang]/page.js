@@ -21,7 +21,7 @@ export default async function Home({ params }) {
 			pageType="checkout"
 		>
 			<div className='max-w-[1280px] mx-auto'>
-				<News/>
+				{/* <News/> */}
 				<Hero
 					locale={dict.Hero}
 					CTALocale={dict.CTAButton}

@@ -6,6 +6,7 @@
 /* 
 // 以下为可能与 DaisyUI 主题系统冲突的自定义 CSS，暂时注释掉。
 // 如果需要特定的全局样式，请确保它们不会覆盖 DaisyUI 的主题变量。
+*/
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -37,7 +38,7 @@ body {
 		-webkit-background-clip: text;
 	}
 }
-*/
+
 
 @layer utilities {
   .text-balance {
