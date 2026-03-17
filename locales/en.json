@@ -34,7 +34,12 @@
 		"h3": "View your business on Odoo anytime, anywhere!"
 	},
 	"CTAButton": {
-		"btn1": "Get Apk",
-		"btn2": "View Documentation"
-	}
+    "btn1": "Get Apk",
+    "btn2": "View Documentation"
+  },
+  "PaymentSuccess": {
+    "title": "Payment Successful!",
+    "message": "Your payment has been successfully completed. Thank you for your purchase!",
+    "returnHome": "Return to Homepage"
+  }
 }

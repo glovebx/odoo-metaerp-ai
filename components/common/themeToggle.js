@@ -15,7 +15,7 @@ export default function ThemeToggle() {
 				id='toggleTheme'
 				type='checkbox'
 				className='theme-controller'
-				checked={theme === 'corporate'}
+				checked={theme === 'business'}
 				onChange={toggleTheme}
 			/>
 

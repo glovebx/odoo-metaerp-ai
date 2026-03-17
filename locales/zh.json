@@ -34,7 +34,12 @@
 		"h3": "随时随地查看您在Odoo上的业务！"
 	},
 	"CTAButton": {
-		"btn1": "获取Apk",
-		"btn2": "查看文档"
-	}
+    "btn1": "获取Apk",
+    "btn2": "查看文档"
+  },
+  "PaymentSuccess": {
+    "title": "支付成功！",
+    "message": "您的支付已成功完成。感谢您的购买！",
+    "returnHome": "返回首页"
+  }
 }

@@ -36,5 +36,10 @@
 	"CTAButton": {
 		"btn1": "Obtener Apk",
 		"btn2": "Ver documentación"
-	}
+	},
+  "PaymentSuccess": {
+    "title": "¡Pago exitoso!",
+    "message": "Su pago se ha completado con éxito. ¡Gracias por su compra!",
+    "returnHome": "Volver a la página de inicio"
+  }
 }

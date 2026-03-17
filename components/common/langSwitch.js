@@ -17,7 +17,7 @@ export default function LangSwitch() {
 				newPathname = `/${value}`;
 			} else {
 				if (value === defaultLocale) {
-					newPathname = '/';
+					newPathname = pathname.replace(`/${langName}`, `/${defaultLocale}`);
 				} else {
 					newPathname = pathname.replace(`/${langName}`, `/${value}`);
 				}

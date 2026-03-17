@@ -43,21 +43,24 @@ const ThemeContext = createContext();
 export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(null);
 
-    // 修复1: 分离初始化逻辑，只运行一次
     useEffect(() => {
         const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const initialTheme = prefersDarkMode ? 'cupcake' : 'dracula';
-        const savedTheme = localStorage.getItem('theme') || initialTheme;
+        const initialTheme = prefersDarkMode ? 'business' : 'corporate';
+        const savedTheme = localStorage.getItem('theme');
         
-        // 直接设置主题，不进行条件判断
-        setTheme(savedTheme);
-        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme) {
+            setTheme(savedTheme);
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        } else {
+            // 如果没有保存的主题，首次访问时强制设置为 'corporate' (明亮模式)
+            setTheme('corporate');
+            document.documentElement.setAttribute('data-theme', 'corporate');
+        }
         
-        // 监听系统主题变化
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
         const handleSystemThemeChange = (e) => {
-            if (!localStorage.getItem('theme')) { // 只有用户未手动设置时才跟随系统
-                const newTheme = e.matches ? 'cupcake' : 'dracula';
+            if (!localStorage.getItem('theme')) {
+                const newTheme = e.matches ? 'business' : 'corporate';
                 setTheme(newTheme);
                 document.documentElement.setAttribute('data-theme', newTheme);
             }
@@ -66,15 +69,16 @@ export const ThemeProvider = ({ children }) => {
         mediaQuery.addEventListener('change', handleSystemThemeChange);
         
         return () => mediaQuery.removeEventListener('change', handleSystemThemeChange);
-    }, []); // 空依赖数组，只运行一次
+    }, []);
 
-    // 修复2: 使用 useCallback 优化 toggle 函数
     const toggleTheme = useCallback(() => {
-        const newTheme = theme === 'dracula' ? 'cupcake' : 'dracula';
-        setTheme(newTheme);
-        localStorage.setItem('theme', newTheme); // 保存用户选择
-        document.documentElement.setAttribute('data-theme', newTheme);
-    }, [theme]); // 依赖 theme 确保使用最新值
+        setTheme(prevTheme => {
+            const newTheme = prevTheme === 'corporate' ? 'business' : 'corporate';
+            localStorage.setItem('theme', newTheme);
+            document.documentElement.setAttribute('data-theme', newTheme);
+            return newTheme;
+        });
+    }, []);
 
     // 修复3: 提供加载状态而不是阻塞渲染
     const contextValue = {

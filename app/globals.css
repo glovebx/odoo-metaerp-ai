@@ -1,10 +1,11 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark, cupcake, dracula;
+  themes: corporate, business;
 }
+
+/* 
+// 以下为可能与 DaisyUI 主题系统冲突的自定义 CSS，暂时注释掉。
+// 如果需要特定的全局样式，请确保它们不会覆盖 DaisyUI 的主题变量。
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -20,14 +21,6 @@
   }
 }
 
-/* 如果不支持 background-clip，则使用 -webkit 前缀 */
-@supports not (background-clip: text) {
-	.bg-clip-text {
-    background-clip: text;
-		-webkit-background-clip: text;
-	}
-  }
-
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -37,6 +30,14 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@supports not (background-clip: text) {
+	.bg-clip-text {
+    background-clip: text;
+		-webkit-background-clip: text;
+	}
+}
+*/
 
 @layer utilities {
   .text-balance {
