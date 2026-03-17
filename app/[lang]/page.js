@@ -26,9 +26,9 @@ export default async function Home({ params }) {
 					locale={dict.Hero}
 					CTALocale={dict.CTAButton}
 				/>
-				<div className="flex justify-center my-8">
+				{/* <div className="flex justify-center my-8">
 					<PayPalButtonWrapper />
-				</div>
+				</div> */}
 				<Feature
 					locale={dict.Feature}
 					langName={langName}

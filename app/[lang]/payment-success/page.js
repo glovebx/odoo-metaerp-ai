@@ -2,7 +2,8 @@ import { getDictionary } from '@/lib/i18n';
 
 export default async function PaymentSuccess({ params }) {
   const { lang } = await params;
-  const dict = await getDictionary(lang);
+  const langName = lang || defaultLocale;
+  const dict = await getDictionary(langName);
   const t = dict.PaymentSuccess; // Access the PaymentSuccess object from the dictionary
 
   return (
