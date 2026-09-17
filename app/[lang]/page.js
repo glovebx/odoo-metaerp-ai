@@ -17,6 +17,7 @@ export default async function Home({ params }) {
 	return (
 		<PayPalProvider
 			clientId={process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}
+			environment={process.env.NODE_ENV === 'production' ? 'production' : 'sandbox'}
 			components={["paypal-payments"]}
 			pageType="checkout"
 		>

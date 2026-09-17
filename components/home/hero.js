@@ -50,7 +50,10 @@ export default function Hero({ locale, CTALocale }) {
 						duration: 1,
 					}}
 				>
-					<h2 className='w-full md:w-10/12 mx-auto text-xl md:text-2xl text-base-content/80 md:text-center mb-5 md:mb-10'>{locale.h2}</h2>
+					<h2
+						className='w-full md:w-10/12 mx-auto text-xl md:text-2xl text-base-content/80 md:text-center mb-5 md:mb-10'
+						dangerouslySetInnerHTML={{ __html: locale.h2 }}
+					/>
 
 					<div className='w-full md:w-8/12 mx-auto flex flex-col md:flex-row md:items-center justify-between gap-y-5'>
 						<HeroIcons />
