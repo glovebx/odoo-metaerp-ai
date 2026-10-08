@@ -1,12 +1,14 @@
 'use client';
 import HeroIcons from './icons';
+import WmsPromo from './wmsPromo';
+import DownloadButton from '@/components/common/downloadButton';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { SiGithub } from 'react-icons/si';
+import { FaDownload } from 'react-icons/fa6';
 import { IoDocumentText } from 'react-icons/io5';
 
 import { useEffect, useState } from 'react';
-export default function Hero({ locale, CTALocale }) {
+export default function Hero({ locale, CTALocale, wmsLocale, downloadLocale }) {
 	const [tilt, setTilt] = useState(45);
 	const [duration, setDuration] = useState(0.8);
 
@@ -32,6 +34,10 @@ export default function Hero({ locale, CTALocale }) {
 				className='relative z-10 flex flex-col items-start md:items-center py-10 md:py-20 overflow-hidden'
 				style={{ perspective: '800px' }}
 			>
+				{/* 奥道 WMS — sibling product, kept above the fold and static so
+				    the link is crawlable without JavaScript. */}
+				<WmsPromo locale={wmsLocale} />
+
 				<motion.div
 					initial={{ opacity: 0, y: 50 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -59,14 +65,13 @@ export default function Hero({ locale, CTALocale }) {
 						<HeroIcons />
 
 						<div className='flex flex-col md:flex-row gap-2'>
-							<a
-								title='get apk'
+							<DownloadButton
+								locale={downloadLocale}
 								className='btn btn-sm md:btn-md btn-base border-none hover:ring-1 ring-base-content text-base-100 hover:text-base-content bg-base-content hover:bg-base-100 rounded-full'
-								href='https://github.com/glovebx/moco-odoo-client'
 							>
-								<SiGithub />
+								<FaDownload />
 								{CTALocale.btn1}
-							</a>
+							</DownloadButton>
 							<a
 								title='get source code'
 								className='btn btn-sm md:btn-md btn-base rounded-full'
@@ -91,7 +96,7 @@ export default function Hero({ locale, CTALocale }) {
 						height={600}
 						src={'/og.png'}
 						className='hidden md:flex w-full -mt-10'
-						alt='app demo'
+						alt='MetaERP Odoo Client on Android: dashboard, barcode scanning and Odoo modules'
 					/>
 				</motion.div>
 			</section>

@@ -2,25 +2,15 @@
 import Image from 'next/image';
 import { NavLinksList } from '@/lib/navLinksList';
 import { usePathname } from 'next/navigation';
-import { defaultLocale } from '@/lib/i18n';
-import { useEffect, useState } from 'react';
+import { localeFromPathname } from '@/lib/i18n';
+
+const isExternal = (url) => url.substr(0, 4) === 'http';
 
 export default function Footer() {
-	const pathname = usePathname();
-	const [langName, setLangName] = useState(defaultLocale);
-	const [linkList, setLinkList] = useState([]);
-
-	useEffect(() => {
-		const fetchLinksList = async () => {
-			if (pathname === '/') {
-				setLangName(defaultLocale);
-			} else {
-				setLangName(pathname.split('/')[1]);
-			}
-			setLinkList(NavLinksList[`LINK_${langName.toUpperCase()}`] || []);
-		};
-		fetchLinksList();
-	}, [pathname, langName]);
+	// Derived during render (not inside an effect) so the footer links are part
+	// of the server-rendered HTML and stay crawlable without JavaScript.
+	const langName = localeFromPathname(usePathname());
+	const linkList = NavLinksList[`LINK_${langName.toUpperCase()}`] || [];
 
 	return (
 		<footer className='w-full px-5 py-10 bg-[#202020] text-[#f7f7f7] '>
@@ -37,23 +27,26 @@ export default function Footer() {
 							height={200}
 							src={'/odoo.png'}
 							className='transition-all hover:scale-110 w-6 md:w-10 h-6 md:h-10'
-							alt='logo'
+							alt='MetaERP Odoo Client logo'
 						></Image>
-						<h2 className='ml-3 font-bold leading-5'>MetaERP Odoo Client</h2>
+						<span className='ml-3 font-bold leading-5'>MetaERP Odoo Client</span>
 					</a>
-					<div className='flex flex-wrap justify-center gap-x-2 md:gap-x-5 gap-y-1'>
+					<nav
+						aria-label='Footer'
+						className='flex flex-wrap justify-center gap-x-2 md:gap-x-5 gap-y-1'
+					>
 						{linkList.map((link, index) => {
 							return (
 								<a
 									key={index}
 									title={link.name}
-									href={link.url.substr(0, 4) !== 'http' ? `/${langName}${link.url}` : link.url}
+									href={isExternal(link.url) ? link.url : `/${langName}${link.url}`}
 								>
 									{link.name}
 								</a>
 							);
 						})}
-					</div>
+					</nav>
 				</div>
 
 				<p>
@@ -62,6 +55,7 @@ export default function Footer() {
 						title={'glovebx'}
 						href='https://github.com/glovebx/moco-odoo-client'
 						target='_blank'
+						rel='noopener'
 					>
 						MetaERP.AI
 					</a>{' '}

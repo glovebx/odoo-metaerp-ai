@@ -34,8 +34,27 @@
 		"h3": "View your business on Odoo anytime, anywhere!"
 	},
 	"CTAButton": {
-    "btn1": "Get Apk",
+    "btn1": "Get installer",
     "btn2": "View Documentation"
+  },
+  "Wms": {
+    "badge": "New",
+    "title": "奥道 WMS — mobile warehouse execution for Odoo",
+    "description": "Wave and cluster picking, putaway, cycle counts, packing and label printing from a single Android PDA. Connects straight to Odoo 14–20 with no middleware.",
+    "cta": "Explore WMS"
+  },
+  "Download": {
+    "title": "Get the installer",
+    "androidHint": "Choose the build that matches your device:",
+    "hmsTitle": "Huawei / Honor (HMS)",
+    "hmsDesc": "Uses HUAWEI Scan Kit. No Google services required — recommended for Huawei and Honor devices.",
+    "gmsTitle": "Google services (GMS)",
+    "gmsDesc": "Uses Google ML Kit + CameraX. For Android devices with Google Play services.",
+    "scanTitle": "Scan to install on your phone",
+    "scanHint": "You are not on an Android device. Open the camera or a QR scanner on an Android phone, scan a code below, then download and install.",
+    "hmsShort": "Huawei / Honor",
+    "gmsShort": "Google services",
+    "close": "Close"
   },
   "PaymentSuccess": {
     "title": "Payment Successful!",

@@ -34,9 +34,28 @@
 		"h3": "¡Vea su negocio en Odoo en cualquier momento y en cualquier lugar!"
 	},
 	"CTAButton": {
-		"btn1": "Obtener Apk",
+		"btn1": "Obtener instalador",
 		"btn2": "Ver documentación"
 	},
+  "Wms": {
+    "badge": "Nuevo",
+    "title": "奥道 WMS — ejecución móvil de almacén para Odoo",
+    "description": "Picking por oleadas y clústeres, ubicación, inventarios, empaque e impresión de etiquetas desde un solo PDA Android. Conexión directa a Odoo 14–20, sin middleware.",
+    "cta": "Ver WMS"
+  },
+  "Download": {
+    "title": "Obtener el instalador",
+    "androidHint": "Elige la versión que corresponda a tu dispositivo:",
+    "hmsTitle": "Huawei / Honor (HMS)",
+    "hmsDesc": "Usa HUAWEI Scan Kit. No requiere servicios de Google; recomendado para dispositivos Huawei y Honor.",
+    "gmsTitle": "Servicios de Google (GMS)",
+    "gmsDesc": "Usa Google ML Kit + CameraX. Para dispositivos Android con servicios de Google Play.",
+    "scanTitle": "Escanea para instalar en tu móvil",
+    "scanHint": "No estás en un dispositivo Android. Abre la cámara o un lector de códigos QR en un móvil Android, escanea un código y descarga e instala.",
+    "hmsShort": "Huawei / Honor",
+    "gmsShort": "Servicios de Google",
+    "close": "Cerrar"
+  },
   "PaymentSuccess": {
     "title": "¡Pago exitoso!",
     "message": "Su pago se ha completado con éxito. ¡Gracias por su compra!",

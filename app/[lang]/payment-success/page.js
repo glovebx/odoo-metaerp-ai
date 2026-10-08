@@ -1,4 +1,21 @@
-import { getDictionary } from '@/lib/i18n';
+import { defaultLocale, getDictionary, resolveLocale } from '@/lib/i18n';
+import { localeUrl } from '@/lib/seo/site';
+
+/**
+ * Transactional thank-you page: useful to humans, worthless as a search
+ * result, so it is excluded from the index and from the sitemap.
+ */
+export async function generateMetadata({ params }) {
+	const { lang } = await params;
+	const locale = resolveLocale(lang);
+	const dict = await getDictionary(locale);
+
+	return {
+		title: dict.PaymentSuccess?.title || 'Payment successful',
+		alternates: { canonical: localeUrl(locale, 'payment-success') },
+		robots: { index: false, follow: false },
+	};
+}
 
 export default async function PaymentSuccess({ params }) {
   const { lang } = await params;

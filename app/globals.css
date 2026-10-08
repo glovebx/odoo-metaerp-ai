@@ -45,3 +45,39 @@ body {
     text-wrap: balance;
   }
 }
+
+/*
+ * Reveal failsafe (see components/common/head.js + hydrationBeacon.js).
+ *
+ * Every animated block — the hero and all five sections — is rendered by
+ * Framer Motion with an inline `opacity: 0` in the server HTML, and is only
+ * revealed once React hydrates. If the client bundle never executes, that
+ * leaves the page almost entirely blank.
+ *
+ * `[data-hydration="failed"]` is set by the inline timer in the document head
+ * when hydration did not happen in time. The animation below force-reveals the
+ * stuck blocks: animation declarations outrank the inline `style` attribute,
+ * which a plain rule could not override. A matching <noscript> style in the
+ * head covers the JavaScript-disabled case.
+ */
+@keyframes revealWhenStuck {
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+html[data-hydration='failed'] [style*='opacity:0'],
+html[data-hydration='failed'] [style*='opacity: 0'] {
+	animation: revealWhenStuck 0s linear forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	/* Users who asked for less motion should never wait on an animation to
+	   read the page, so reveal on first paint and skip the entrance effects. */
+	html [style*='opacity:0'],
+	html [style*='opacity: 0'] {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+}

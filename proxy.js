@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { match } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
-import { locales, defaultLocale } from '@/lib/i18n';
+import { locales, defaultLocale, resolveLocale } from '@/lib/i18n';
 
 function getLocale(request) {
   const negotiatorHeaders = {};
@@ -12,8 +12,10 @@ function getLocale(request) {
   // console.log('Negotiator languages:', languages);
   // console.log('Supported locales:', locales);
 
+  // Canonicalize immediately: negotiating to e.g. `zh-CN` would otherwise cost
+  // crawlers a second redirect hop (`/zh-CN` -> `/zh`) before they reach content.
   const locale = match(languages, locales, defaultLocale);
-  return locale;
+  return resolveLocale(locale);
 }
 
 export function proxy(request) {
@@ -44,7 +46,13 @@ export function proxy(request) {
       newPathname = `/${browserLocale}${pathname}`;
     }
     request.nextUrl.pathname = newPathname;
-    return NextResponse.redirect(request.nextUrl);
+
+    const response = NextResponse.redirect(request.nextUrl);
+    // The target depends on Accept-Language, so caches must key on it —
+    // otherwise one visitor's negotiated redirect is served to everyone
+    // (and to search engine crawlers).
+    response.headers.set('Vary', 'Accept-Language');
+    return response;
   }
 
   // Case 2: A specific locale (e.g., 'zh-CN', 'en-US') was in the path,
@@ -62,9 +70,13 @@ export function proxy(request) {
 }
 
 export const config = {
-  // Match only internationalized pathnames
+  // Match only internationalized pathnames.
+  //
+  // Anything with a file extension is skipped, which keeps static SEO/GEO
+  // assets reachable at the site root (`/robots.txt`, `/sitemap.xml`,
+  // `/llms.txt`, `/llms-full.txt`, `/og.png`, the Google verification HTML
+  // file, ...) instead of being rewritten to `/{locale}/...` and 404ing.
   matcher: [
-    // Skip all internal paths like /_next/static, /_next/image, /api, static assets, and dev server artifacts
-    '/((?!api|_next/static|_next/image|favicon.ico|og.png|odoo.png|logo.png|sitemap.xml|robots.txt|news.html|privacy.html|terms.html|vibe-coding.html|@vite).*)',
+    '/((?!api|_next|@vite|.*\\..*).*)',
   ],
 };

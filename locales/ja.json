@@ -34,9 +34,28 @@
 		"h3": "いつでもどこでも Odoo でビジネスをチェック！"
 	},
 	"CTAButton": {
-		"btn1": "Apk を取得",
+		"btn1": "インストーラーを入手",
 		"btn2": "ドキュメントを見る"
 	},
+  "Wms": {
+    "badge": "新製品",
+    "title": "奥道 WMS — Odoo 向けモバイル倉庫実行システム",
+    "description": "ウェーブ／クラスタピッキング、棚入れ、棚卸、梱包、ラベル印刷を 1 台の Android PDA で。Odoo 14〜20 にミドルウェアなしで直接接続します。",
+    "cta": "WMS を見る"
+  },
+  "Download": {
+    "title": "インストーラーを入手",
+    "androidHint": "お使いの端末に合ったビルドを選んでください：",
+    "hmsTitle": "Huawei / Honor（HMS）",
+    "hmsDesc": "HUAWEI Scan Kit を使用。Google サービスは不要で、Huawei・Honor 端末に最適です。",
+    "gmsTitle": "Google サービス（GMS）",
+    "gmsDesc": "Google ML Kit + CameraX を使用。Google Play 開発者サービス入りの Android 端末向けです。",
+    "scanTitle": "スマホでスキャンしてインストール",
+    "scanHint": "現在 Android 端末ではありません。Android スマホのカメラまたは QR コードリーダーで下のコードを読み取り、ダウンロードしてインストールしてください。",
+    "hmsShort": "Huawei / Honor",
+    "gmsShort": "Google サービス",
+    "close": "閉じる"
+  },
   "PaymentSuccess": {
     "title": "支払い完了！",
     "message": "お支払いが正常に完了しました。ご購入いただきありがとうございます！",

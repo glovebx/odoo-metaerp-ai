@@ -1,16 +1,19 @@
 'use client';
 import { motion } from 'framer-motion';
-import { SiGithub } from 'react-icons/si';
+import DownloadButton from '@/components/common/downloadButton';
+import { FaDownload } from 'react-icons/fa6';
 
-export default function Cta({ locale, CTALocale }) {
+export default function Cta({ locale, CTALocale, downloadLocale }) {
 	return (
 		<section
-			id='feature'
+			// Not `feature`: `components/home/feature.js` already owns that id.
+			id='cta'
 			className='relative py-10 md:py-20'
 		>
 			<motion.div
 				initial={{ opacity: 0, y: 50 }}
 				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true }}
 				transition={{
 					duration: 0.5,
 				}}
@@ -22,13 +25,12 @@ export default function Cta({ locale, CTALocale }) {
 
 					<h3 className='w-full md:w-10/12 mx-auto text-xl md:text-2xl text-base-content/80 md:text-center'>{locale.h3}</h3>
 
-					<a
-						title='get source code'
+					<DownloadButton
+						locale={downloadLocale}
 						className='mt-10 btn btn-sm md:btn-md btn-base border-none hover:ring-1 ring-base-content text-base-100 hover:text-base-content bg-base-content hover:bg-base-100 rounded-full'
-						href='#'
 					>
-						<SiGithub /> {CTALocale.btn1}
-					</a>
+						<FaDownload /> {CTALocale.btn1}
+					</DownloadButton>
 				</div>
 			</motion.div>
 

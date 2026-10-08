@@ -1,6 +1,8 @@
-import { defaultLocale, getDictionary } from '@/lib/i18n';
+import { defaultLocale, getDictionary, resolveLocale } from '@/lib/i18n';
 import { PayPalProvider } from '@paypal/react-paypal-js/sdk-v6';
 import PayPalButtonWrapper from '@/components/PayPalButtonWrapper';
+import JsonLd from '@/components/common/JsonLd';
+import { buildHomeGraph } from '@/lib/seo/structuredData';
 
 import News from '@/components/home/news';
 import Hero from '@/components/home/hero';
@@ -21,11 +23,18 @@ export default async function Home({ params }) {
 			components={["paypal-payments"]}
 			pageType="checkout"
 		>
+			{/* SoftwareApplication + pricing offers + FAQ rich results for this locale. */}
+			<JsonLd
+				id='ld-home'
+				data={buildHomeGraph(resolveLocale(langName), dict.Wms)}
+			/>
 			<div className='max-w-[1280px] mx-auto'>
 				{/* <News/> */}
 				<Hero
 					locale={dict.Hero}
 					CTALocale={dict.CTAButton}
+					wmsLocale={dict.Wms}
+					downloadLocale={dict.Download}
 				/>
 				{/* <div className="flex justify-center my-8">
 					<PayPalButtonWrapper />
@@ -49,6 +58,7 @@ export default async function Home({ params }) {
 				<Cta
 					locale={dict.CTA}
 					CTALocale={dict.CTAButton}
+					downloadLocale={dict.Download}
 				/>
 			</div>
 		</PayPalProvider>

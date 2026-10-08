@@ -34,8 +34,27 @@
 		"h3": "随时随地查看您在Odoo上的业务！"
 	},
 	"CTAButton": {
-    "btn1": "获取Apk",
+    "btn1": "获取安装包",
     "btn2": "查看文档"
+  },
+  "Wms": {
+    "badge": "新品",
+    "title": "奥道 WMS —— 面向 Odoo 的移动仓储执行系统",
+    "description": "波次／集群拣货、上架、盘点、打包与标签打印，一台 PDA 扫码即作业。直连 Odoo 14–20，无需任何中间服务。",
+    "cta": "了解奥道 WMS"
+  },
+  "Download": {
+    "title": "获取安装包",
+    "androidHint": "请选择与你设备匹配的版本：",
+    "hmsTitle": "华为 / 荣耀（HMS）",
+    "hmsDesc": "使用华为 Scan Kit，不依赖 Google 服务，华为、荣耀设备推荐。",
+    "gmsTitle": "Google 服务（GMS）",
+    "gmsDesc": "使用 Google ML Kit + CameraX，适用于带 Google 服务的安卓设备。",
+    "scanTitle": "手机扫码下载安装",
+    "scanHint": "当前不是 Android 设备。请用 Android 手机的相机或扫码工具扫描下方二维码，即可下载并安装。",
+    "hmsShort": "华为 / 荣耀",
+    "gmsShort": "Google 服务",
+    "close": "关闭"
   },
   "PaymentSuccess": {
     "title": "支付成功！",
