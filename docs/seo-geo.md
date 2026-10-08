@@ -102,9 +102,9 @@ The hero and CTA buttons ("Get installer" / 获取安装包) open a
 `<dialog>` that branches on `navigator.userAgent` **at click time**, so nothing
 platform-dependent is server-rendered and there is no hydration mismatch:
 
-- **Android** → the two signed APKs, as direct links. `dl.metaerp.ai` serves
-  them as `application/vnd.android.package-archive`, so Android hands the file
-  to the package installer.
+- **Android or HarmonyOS** → the two signed APKs, as direct links.
+  `dl.metaerp.ai` serves them as `application/vnd.android.package-archive`, so
+  the system hands the file to the package installer.
 - **Anything else** → both download QR codes, each labelled, to continue on a
   phone. The codes are not repeated as text links — the dialog stays empty of
   chrome and the labels are enough to tell the two builds apart.
@@ -112,6 +112,29 @@ platform-dependent is server-rendered and there is no hydration mismatch:
 The trigger is an `<a href>` pointing at the GMS build, so if the client bundle
 ever fails to load the control still downloads something useful instead of
 doing nothing (the `showModal` check falls through to the default navigation).
+
+### Device detection
+
+`lib/device.js` decides "can this device install the APK?". It deliberately
+matches a wider set of tokens than `Android`, because **HarmonyOS NEXT reports
+no `Android` token at all** — a Huawei MatePad was shown the desktop QR branch,
+which is useless when the phone you would scan with is the tablet you are
+reading on.
+
+Matched: `android`, `harmonyos`, `openharmony`, `arkweb`, `hmscore`. The last
+two are what make Huawei/Honor tablets work. Two traps are documented in the
+module and pinned by tests:
+
+- `ArkWeb` is usually glued to the previous token (`Safari/537.36ArkWeb/…`), so
+  the pattern must not use a word boundary before it.
+- A Huawei tablet in desktop mode reports
+  `(Tablet; OpenHarmony 6.1; Windows NT 10.0; Win64; x64)` — it must be treated
+  as the tablet it is, not as a PC.
+
+`pnpm verify:device` replays a corpus of **real** user agents observed from the
+named devices (21 cases: Huawei MatePad on HarmonyOS 3, HarmonyOS NEXT tablets
+and phones, Honor Pad / Honor phones on MagicOS, plus macOS, Windows, Windows
+with Huawei Browser, Linux, iPhone and iPad as negatives).
 
 ### QR codes
 

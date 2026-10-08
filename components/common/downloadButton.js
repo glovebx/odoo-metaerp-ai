@@ -3,18 +3,18 @@ import { useId, useRef, useState } from 'react';
 import { FaDownload, FaGoogle, FaMobileScreenButton } from 'react-icons/fa6';
 import { MdClose } from 'react-icons/md';
 import { downloads } from '@/lib/config/site';
-
-const isAndroidDevice = () =>
-	typeof navigator !== 'undefined' && /android/i.test(navigator.userAgent);
+import { isInstallableDevice } from '@/lib/device';
 
 const fileName = (url) => url.split('/').pop();
 
 /**
  * "Get installer" trigger plus a platform-aware download dialog.
  *
- * - On an Android device it offers the two APK builds as direct downloads.
- *   The server sends `application/vnd.android.package-archive`, so Android
+ * - On a device that can install the APK — Android, HarmonyOS/OpenHarmony
+ *   (Huawei, Honor, MatePad) — it offers the two builds as direct downloads.
+ *   The server sends `application/vnd.android.package-archive`, so the system
  *   hands the file straight to the package installer.
+ *   Detection lives in `lib/device.js` and is covered by fixtures there.
  * - Anywhere else it shows the download QR codes, because an APK is useless on
  *   a desktop and the visitor needs to continue on a phone.
  *
@@ -33,7 +33,7 @@ export default function DownloadButton({ locale = {}, className = '', children }
 		// No <dialog> support (or no JS bundle): let the default href download.
 		if (typeof window === 'undefined' || typeof dialogRef.current?.showModal !== 'function') return;
 		event.preventDefault();
-		setMode(isAndroidDevice() ? 'android' : 'other');
+		setMode(isInstallableDevice(navigator.userAgent) ? 'android' : 'other');
 		dialogRef.current.showModal();
 	};
 
