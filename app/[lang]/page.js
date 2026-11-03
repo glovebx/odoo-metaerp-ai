@@ -7,6 +7,7 @@ import { buildHomeGraph } from '@/lib/seo/structuredData';
 import News from '@/components/home/news';
 import Hero from '@/components/home/hero';
 import Feature from '@/components/home/feature';
+import Screenshots from '@/components/home/screenshots';
 import Pricing from '@/components/home/pricing';
 import Testimonial from '@/components/home/testimonial';
 import Faq from '@/components/home/faq';
@@ -43,6 +44,7 @@ export default async function Home({ params }) {
 					locale={dict.Feature}
 					langName={langName}
 				/>
+				<Screenshots langName={langName} />
 				<Pricing
 					locale={dict.Pricing}
 					langName={langName}

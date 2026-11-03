@@ -21,6 +21,7 @@ that everything below is actually being served.
 | Locale routing + canonicalizing redirects | `proxy.js` |
 | 奥道 WMS announcement in the hero | `components/home/wmsPromo.js` |
 | "Get installer" button + download dialog | `components/common/downloadButton.js` |
+| Real-device screenshot gallery | `components/home/screenshots.js`, `lib/screenshotsList.js` |
 | APK URLs and QR code paths | `lib/config/site.js` (`downloads`) |
 | Regression test | `scripts/verify-seo.mjs` |
 
@@ -95,6 +96,65 @@ so it is translated alongside the rest of the page.
 
 The WMS site exposes only a single root URL (its language switcher is
 client-side), so every locale links to `https://wms.metaerp.ai/`.
+
+## Screenshot gallery
+
+`components/home/screenshots.js` renders eight real captures between the feature
+list and pricing, grouped by area rather than one flat list: getting in (sign
+in -> accounts -> discuss), warehouse work (inventory board -> stock receipt),
+then configuration (app settings -> scanning/login options -> IPP printer).
+
+The images in `public/screenshots/` are the client's **native** screens rather
+than the embedded Odoo WebView views, because the native side is what a browser
+or the official Odoo app does not have: multi-account sign-in, auto-login,
+learning mode, hardware-key scanning, Bluetooth/IPP printing and the on-device
+print service.
+
+Nothing runs at build time — they are committed assets. How they were made:
+
+1. Captured with `adb exec-out screencap -p` on the connected device
+   (`co.moco.odooclient.gms`), driven with `adb shell input tap`, and confirmed
+   with `uiautomator dump`, since the screen content cannot be inspected
+   visually otherwise.
+2. Cropped to the app window — status bar (top 120px) and gesture bar
+   (bottom 120px) removed — scaled to 720px wide, metadata stripped.
+
+Screens rejected during capture, for the record: the `LLM` sub-screen renders
+empty, `关于` sits clipped at the bottom edge and cannot be tapped, and the
+cloud-print dialog exposes an internal IP plus token.
+
+Layout is `grid-cols-2 / sm:grid-cols-3 / lg:grid-cols-4` inside a
+`max-w-[1040px]` wrapper, so eight shots form **4 x 2** on desktop at ~240px
+each, 3 x 3 on tablets (3 x 225px) and 2 x 4 on phones. The width cap matters:
+with a plain `w-full` three-column grid each shot grew to 397px on a 1280px
+screen, which was too large for the section.
+
+Images carry `loading="lazy"`, so the shots in the second row are only requested
+once scrolled near — a `naturalWidth === 0` reading taken before scrolling is
+therefore expected, not a broken asset. `next.config.mjs` allowlists
+`qualities: [75, 90]` because Next 16 silently ignores a `quality` prop that is
+not listed; 90 matters here since these screens are dense with small UI text.
+Each renders at ~230px and is served as ~828px WebP.
+
+The same list feeds `SoftwareApplication.screenshot` in the JSON-LD, so the
+structured data always matches what is on the page.
+
+### Horizontal scrollbar, fixed
+
+Between 768 and 1023px the page used to scroll horizontally. The cause was the
+decorative radial-gradient blobs in the feature/pricing/faq sections
+(`absolute ... w-[500px]`), whose right edge reached 884px in a 768px viewport.
+
+An earlier note in this file blamed the hero `og.png` for being "861px inside a
+728px container". That reading was wrong: the hero image sits inside a
+`motion.div` rotated with `rotateX`, and `getBoundingClientRect()` returns the
+**projected** box, not the layout box. `offsetWidth` shows the hero was always
+`viewport - 40px` (728px at 768px wide).
+
+Fixed with `overflow-x-clip` on the page wrapper in `app/[lang]/layout.js`,
+which contains the blobs without creating a scroll container (unlike
+`overflow-x-hidden`, which can break `position: sticky` descendants). Verified
+`scrollWidth === innerWidth` at 390 / 768 / 900 / 1024 / 1280 / 1440px.
 
 ## Download flow
 

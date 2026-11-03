@@ -26,6 +26,9 @@ const nextConfig = {
 				hostname: 'odoo.metaerp.ai',
 			},
 		],
+		// Next 16 only honours `quality` values listed here. The app screenshots
+		// are small UI text, which shows WebP artefacts at the default 75.
+		qualities: [75, 90],
 	},
 	allowedDevOrigins,
 };

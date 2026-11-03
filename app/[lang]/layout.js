@@ -123,7 +123,13 @@ export default async function LocaleLayout({ children, params }) {
 				<ThemeProvider>
 					<div className='w-full min-h-svh text-base-content bg-base-100'>
 						<Navbar />
-						<div className='px-5'>{children}</div>
+						{/*
+						 * `overflow-x-clip` contains the decorative gradient blobs in the
+						 * feature/pricing/faq sections, which extend past the viewport on
+						 * tablet widths and produced a horizontal scrollbar. Unlike
+						 * `overflow-x-hidden` it does not create a scroll container.
+						 */}
+						<div className='px-5 overflow-x-clip'>{children}</div>
 						<Footer />
 					</div>
 				</ThemeProvider>

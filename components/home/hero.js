@@ -95,7 +95,7 @@ export default function Hero({ locale, CTALocale, wmsLocale, downloadLocale }) {
 						width={1024}
 						height={600}
 						src={'/og.png'}
-						className='hidden md:flex w-full -mt-10'
+						className='hidden md:block w-full h-auto -mt-10'
 						alt='MetaERP Odoo Client on Android: dashboard, barcode scanning and Odoo modules'
 					/>
 				</motion.div>
